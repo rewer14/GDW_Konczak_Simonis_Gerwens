@@ -1,14 +1,17 @@
+'use strict'
 const readline = require('readline')
+//readline
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
 
-
+//Randomaizer
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+//Variablen
 var max_Bewertung = 5;
 var aktulleAnzahl = 0;
 var sch = 0;
@@ -17,6 +20,7 @@ var bewertung = 0;
 let array = [];
 var sum = 0
 
+//Funktion für die Erstellung eines Objekts
 function Rating(name, anzahl, lastrating) {
     this.name = name;
     this.anzahl = anzahl;
@@ -27,12 +31,12 @@ function Rating(name, anzahl, lastrating) {
         }
         return (sum / this.anzahl);
     }
-
-
 };
 
-let ratings = new Rating('', 0, 0);
+let ratings = new Rating('', 0, 0); //new object
 
+
+//Auswahl zwischen Selber bewerten und zufälliger Bewertung
 const entscheidung = function () {
     rl.question('Mit 1 kannst du selber eine Bewertung angeben und mit 2 Zufällige Bewertungen und mit 3 beendet du das Programm\n', function (ent) {
         switch (parseInt(ent)) {
@@ -49,6 +53,7 @@ const entscheidung = function () {
 
 }
 
+// Funktion zum erzeugen von zufälligen Bewertungen
 const random = function (callback) {
     var random;
     for (var i = 1; i <= 20; i++) {
@@ -59,14 +64,13 @@ const random = function (callback) {
     }
     callback((bewertung / i));
     rl.close();
-
-
 }
-
+//Konsolen Ausgabe
 const log = function (messange) {
     console.log(messange);
     console.log(array[0].name, array[0].anzahl, array[0].lastrating)
 }
+//Funktion zur Angabe einer Bewertung
 const name = function name() {
     rl.question('Was ist Ihr Name?', function (n) {
         //array.push(n);
@@ -74,6 +78,7 @@ const name = function name() {
         entscheidung();
     })
 }
+//Funktion zur selbst Eingabe einer Bewertung
 const selber = function eingabe(callback) {
     rl.question('Was ist Ihre Bewertung?', function (bew) {
         if (bew <= max_Bewertung) {
@@ -88,7 +93,24 @@ const selber = function eingabe(callback) {
     })
 
 }
+
+const hello = "hello"
+const world="world"
+
+const konk=function(){
+    const zusammen=world + hello
+    console.log(zusammen)
+}
+
+const konk2=function(){
+    const zusammen2=hello+world
+    console.log(zusammen2)
+}
+
+//Ausführen des Codes
 name()
+konk()
+konk2()
 
 
 
