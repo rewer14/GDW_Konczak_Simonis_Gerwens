@@ -46,7 +46,6 @@ rl.question('Geben sie die Bewertung ein: ',function(answer){
     console.log('Bewertung:',bewertung);    //Ausgabe   
     } else console.log('Falsche Eingabe')   //Ausgabe Fehlermeldung
     process.exit
-    bewertungsListe.push(bewertung);
 
     rl.close();
 

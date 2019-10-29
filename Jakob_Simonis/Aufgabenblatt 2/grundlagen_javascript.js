@@ -2,6 +2,7 @@
 const maxBerwertung = 5; //Konstante für maximale Bewertung
 var anzahlBewertung = 20; //Variable für Anzahl von Bewertungen
 var bewertung = 3; //Bewertung selbst
+let 
 
 
 console.log(maxBerwertung);
