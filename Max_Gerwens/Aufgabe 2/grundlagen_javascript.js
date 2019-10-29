@@ -93,10 +93,10 @@ const selber = function eingabe(callback) {
     })
 
 }
-
+//Konstante Werte
 const hello = "hello"
 const world="world"
-
+//Konkenation von zwei Konstanten
 const konk=function(){
     const zusammen=world + hello
     console.log(zusammen)
