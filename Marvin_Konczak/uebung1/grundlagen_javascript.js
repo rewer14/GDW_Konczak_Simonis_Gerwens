@@ -7,6 +7,10 @@ const rl = readline.createInterface({
 
 let name = "Marvin";
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 console.log(name);
 
 const maxBewertung = 10;
@@ -56,3 +60,11 @@ function getRating() {
   });
 }
 getRating();
+
+//Aufgabe 4
+
+function zufallsbewertung() {
+  let radom;
+  for (let i = 1; i <= 100; i++) random = getRandomInt(5);
+  bewerten(random);
+}
