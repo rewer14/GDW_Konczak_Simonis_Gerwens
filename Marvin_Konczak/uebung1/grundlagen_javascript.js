@@ -24,12 +24,14 @@ function bewertungAusgeben() {
 
 bewertungAusgeben();
 
+//werte hinzufügen unter beachtung des durchschnitts
 function addToAverage(currentAverage, numberOfElements, newSummand) {
   return (
     currentAverage + (newSummand - currentAverage) / (numberOfElements + 1)
   );
 }
 
+//parse funktion für die eingabe als INT
 function parseUserInputAsFloat(input) {
   const number = Number.parseFloat(input, 10);
 
@@ -68,3 +70,5 @@ function zufallsbewertung() {
   for (let i = 1; i <= 100; i++) random = getRandomInt(5);
   bewerten(random);
 }
+
+getRating(zufallsbewertung);
