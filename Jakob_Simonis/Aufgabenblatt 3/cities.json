@@ -1,0 +1,70 @@
+[{
+    "einwohnerzahl": 3748148,
+    "stadt": {
+        "name":"Berlin",
+        "bundesland":"Berlin" }
+},
+
+{
+    "einwohnerzahl":  1891810,
+    "stadtname":{
+        "name":"Hamburg",
+        "bundesland":"Hambung" }
+},
+
+{
+    "einwohnerzahl":  1471508,
+    "stadt":{
+        "name":"München",
+        "bundesland":"Bayern" }
+},
+
+{
+    "einwohnerzahl":  1085664,
+    "stadtname":{
+        "name":"Köln",
+        "bundesland":"Nordrheinwestfalen" }
+},
+
+{
+    "einwohnerzahl":  753056,
+    "stadtname":{
+        "name":"Frankfurt am Main",
+        "bundesland":"Hessen" }
+},
+
+{
+    "einwohnerzahl":  634830,
+    "stadtname":{
+        "name":"Stuttgart",
+        "bundesland":"Baden Württemberg" }
+},
+
+{
+    "einwohnerzahl":  619294,
+    "stadtname":{
+        "name" :"Duesseldorf",
+        "bundesland":"Nordrheinwestfalen" }
+},
+
+{
+    "einwohnerzahl":  587857,
+    "stadtname":{
+        "name":"Leipzig",
+        "bundesland":"Sachsen" }
+},
+
+{
+    "einwohnerzahl":  587010,
+    "stadtname":{
+        "name":"Dortmund",
+        "bundesland":"Nordrheinwestfalen" }
+},
+
+{
+    "einwohnerzahl":  583109,
+    "stadtname":{
+        "name":"Essen",
+        "bundesland":"Nordrheinwestfalen" }
+}
+]
