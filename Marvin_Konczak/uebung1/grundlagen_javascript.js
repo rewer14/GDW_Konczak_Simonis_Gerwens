@@ -8,6 +8,7 @@ const rl = readline.createInterface({
 //Variable mit Namen
 let name = "Marvin";
 
+//Randomfunktion der JS Library
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
