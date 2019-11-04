@@ -9,15 +9,11 @@ ratings.name;
 let bewertungsListe = [ratings];   //Array von Bewertungen
 
 
-console.log(maxBerwertung);
-console.log(anzahlBewertung);
-console.log(bewertung);
-//Ausgabe auf Konsole
-
 function getRandomInt(max) {
 return Math.floor(Math.random() * Math.floor(max))
 }
 //Zufallszahl generieren
+
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -26,30 +22,32 @@ const rl = readline.createInterface({
     });
 //Funktion zum Einlesen
 
+
 console.log('zufällige Bewertung: \n');
+
 
 function zufall() {
 var random;
-for(var i = 1; i<=20; i++) {
-    random = getRandomInt(5);
+for(var i = 1; i<=20; i++) {        //Schleife für Zufallszahl
+    random = getRandomInt(5);       //AUfruf von Zufallsfunktion
 
-    ratings.bewertung = random;
-    ratings.anzahlBewertung++;
+    ratings.bewertung = random;     
+    ratings.anzahlBewertung++;  
     ratings.name = i+"-te Bewertung";
 
-    bewertungsListe.push(ratings.name, ratings.bewertung, ratings.anzahlBewertung);
+    bewertungsListe.push(ratings.name, ratings.bewertung, ratings.anzahlBewertung);     //Hinzufügen in Array
 }
 
 bewertungsListe.forEach(function(item, array ){
 
     console.log(item)
 });
+//Ausgabe von Array
 
 process.exit();
 rl.close();
 
 }
-
 
 
 function festlegen() {
@@ -63,7 +61,7 @@ rl.question('Geben sie die Bewertung ein: ',function(answer){
     console.log('Bewertung:',ratings.bewertung);    //Ausgabe   
     } else console.log('Falsche Eingabe')   //Ausgabe Fehlermeldung
     process.exit
-    bewertungsListe.push(ratings.bewertung);
+    bewertungsListe.push(ratings.bewertung);    //Hinzufuegen in Array
 
     rl.close();
 
@@ -71,6 +69,7 @@ rl.question('Geben sie die Bewertung ein: ',function(answer){
 
         console.log(item, index)
     });
+    	//Ausgabe von Array
     
 });
 
