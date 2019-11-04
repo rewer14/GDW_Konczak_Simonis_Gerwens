@@ -6,7 +6,7 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-//Randomaizer
+//Randomaize
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
@@ -14,9 +14,8 @@ function getRandomInt(max) {
 //Variablen
 var max_Bewertung = 5;
 var aktulleAnzahl = 0;
-var sch = 0;
-var anz;
 var bewertung = 0;
+var i;
 let array = [];
 var sum = 0
 
