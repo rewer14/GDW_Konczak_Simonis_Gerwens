@@ -1,8 +1,11 @@
 
-const maxBerwertung = 5; //Konstante für maximale Bewertung
-var anzahlBewertung = 20; //Variable für Anzahl von Bewertungen
-var bewertung = 3; //Bewertung selbst
-let 
+const maxBerwertung = 5;    //Konstante für maximale Bewertung
+var anzahlBewertung = 20;   //Variable für Anzahl von Bewertungen
+var bewertung = 3;          //Bewertung selbst
+let ratings = new Object;   //Objekt für Bewertungen
+ratings.anzahlBewertung = 0;
+ratings.bewertung = 0;
+let bewertungsListe = [ratings];   //Array von Bewertungen
 
 
 console.log(maxBerwertung);
@@ -29,11 +32,25 @@ var random;
 for(var i = 1; i<=20; i++) {
     random = getRandomInt(5);
     bewertung+=random;
-    console.log(i,random,(bewertung/i));
+    //console.log(i,random,(bewertung/i));
+
+    ratings.bewertung = (bewertung/i);
+    ratings.anzahlBewertung++;
+    
+    console.log(i, random, ratings.bewertung);
+    bewertungsListe.push(ratings.bewertung, ratings.anzahlBewertung);
 }
 console.log('Bewertung: ',(bewertung/i));
-process.exit()
+
+bewertungsListe.forEach(function(item, index, array ){
+
+    console.log(item, index)
+});
+
+process.exit();
 rl.close();
+
+
 }
 
 function festlegen() {
@@ -42,15 +59,20 @@ console.log('Bewertung festlegen: \n');
 rl.question('Geben sie die Bewertung ein: ',function(answer){
 
     if(answer <= maxBerwertung) {   //Darf maximale Bewertung nicht überschreiten
-    anzahlBewertung+=1;             //Anzahl der Bewertungen erhöhen
-    bewertung = parseInt(answer);   //Eingabe als int in Bewertung 
-    console.log('Bewertung:',bewertung);    //Ausgabe   
+    ratings.anzahlBewertung+=1;             //Anzahl der Bewertungen erhöhen
+    ratings.bewertung = parseInt(answer);   //Eingabe als int in Bewertung 
+    console.log('Bewertung:',ratings.bewertung);    //Ausgabe   
     } else console.log('Falsche Eingabe')   //Ausgabe Fehlermeldung
     process.exit
-    bewertungsListe.push(bewertung);
+    bewertungsListe.push(ratings.bewertung);
 
     rl.close();
 
+    bewertungsListe.forEach(function(item, index, array ){
+
+        console.log(item, index)
+    });
+    
 });
 
 }
@@ -73,5 +95,6 @@ function auswahl(){
     }
 }
 //Switch für Menueauswahl
+
 
 
