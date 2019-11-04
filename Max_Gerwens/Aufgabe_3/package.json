@@ -1,11 +1,15 @@
 {
-  "name": "Aufgabe_3_grundlagen_javascript",
+  "name": "aufgabe3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Aufgabe_3_grundlagen_javascript.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Max603/GDW_Konczak_Simonis_Gerwens/tree/master/Max_Gerwens/Aufgabe_3"
+  },
   "author": "",
-  }
+  "license": "ISC"
+}
