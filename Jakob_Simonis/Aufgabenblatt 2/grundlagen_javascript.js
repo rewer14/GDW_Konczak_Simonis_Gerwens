@@ -1,4 +1,3 @@
-
 const maxBerwertung = 5;    //Konstante für maximale Bewertung
 
 let ratings = {
@@ -8,7 +7,7 @@ let ratings = {
     bewertungsSumme : 0,
 
     durchschnitt: function() {
-    var avrg = (this.bewertungsSumme/anzahlBewertung);
+    var avrg = (this.bewertungsSumme/this.anzahlBewertung);
        return avrg;
     }
 };   
@@ -30,11 +29,10 @@ const rl = readline.createInterface({
 //Funktion zum Einlesen
 
 
-console.log('zufällige Bewertung: \n');
-
 
 function zufall() {
 var random;
+console.log('zufällige Bewertung: \n');
 for(var i = 1; i<=20; i++) {        //Schleife für Zufallszahl
     random = getRandomInt(5);       //AUfruf von Zufallsfunktion
 
@@ -50,9 +48,11 @@ bewertungsListe.forEach(function(item, array ){
 
     console.log(item)
 });
-//Ausgabe von Array
+                                    //Ausgabe von Array
 
-console.log(ratings.durchschnitt);
+console.log("\n Durchschnittliche Bewertung:")
+console.log(ratings.durchschnitt());    //Ausgabe von Durchschnitt
+
 process.exit();
 rl.close();
 
@@ -105,3 +105,24 @@ function auswahl(){
 }
 //Switch für Menueauswahl
 
+const hello = "hello";
+
+function helloWorld() {
+
+    const world = "world";
+    const zusammen = hello +world;
+    
+    console.log("\n\n"+zusammen);
+    
+}
+
+function worldHello() {
+
+    const world = "world"
+
+    const zusammen = world +hello;
+    console.log(zusammen);
+
+}
+helloWorld();
+worldHello();
