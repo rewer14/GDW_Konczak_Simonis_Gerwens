@@ -4,7 +4,7 @@ var anzahlBewertung = 20;   //Variable für Anzahl von Bewertungen
 var bewertung = 3;          //Bewertung selbst
 let ratings = new Object;   //Objekt für Bewertungen
 ratings.anzahlBewertung = 0;
-ratings.bewertung;
+ratings.bewertung = 0;
 let bewertungsListe = [ratings];   //Array von Bewertungen
 
 
@@ -38,7 +38,7 @@ for(var i = 1; i<=20; i++) {
     ratings.anzahlBewertung++;
     
     console.log(i, random, ratings.bewertung);
-    bewertungsListe.push(ratings.bewertung);
+    bewertungsListe.push(ratings.bewertung, ratings.anzahlBewertung);
 }
 console.log('Bewertung: ',(bewertung/i));
 
