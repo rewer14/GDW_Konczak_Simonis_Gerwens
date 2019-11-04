@@ -37,7 +37,7 @@ let ratings = new Rating('', 0, 0); //new object
 
 //Auswahl zwischen Selber bewerten und zufälliger Bewertung
 const entscheidung = function () {
-    rl.question('Mit 1 kannst du selber eine Bewertung angeben und mit 2 Zufällige Bewertungen und mit 3 beendet du das Programm\n', function (ent) {
+    rl.question('Mit 1 kannst du selber eine Bewertung angeben und mit 2 Zufällige Bewertungen\n', function (ent) {
         switch (parseInt(ent)) {
             case 1:
                 selber(log);
@@ -64,7 +64,7 @@ const random = function (callback) {
     callback((bewertung / i));
     rl.close();
 }
-//Konsolen Ausgabe
+//Konsolen ausgabe
 const log = function (messange) {
     console.log(messange);
     console.log(array[0].name, array[0].anzahl, array[0].lastrating)
