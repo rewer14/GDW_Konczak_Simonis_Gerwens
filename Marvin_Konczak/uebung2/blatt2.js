@@ -23,6 +23,7 @@ function parseUserInputAsFloat(input) {
   //returned die Number als float
   return number;
 }
+
 //Aufgabe 1
 let namebewert = "Bewertung1";
 let bewertungsanz = 11;
@@ -37,8 +38,30 @@ console.log(array1[2]);
 
 //Aufgabe 2
 //erzeugung eines Bewertungen Objektes
-let ratings = new Object();
-ratings.anz = 0;
-ratings.avrg = 0;
-ratings.name = "test";
-let ratingsarray = [ratings];
+let rating1 = new Object();
+rating1.anz = 20;
+rating1.avrg = 8.5;
+rating1.name = "Bewertung1";
+
+console.log(rating1.name);
+
+//Object 2
+let rating2 = new Object();
+rating2.anz = 15;
+rating2.avrg = 7.5;
+rating2.name = "Bewertung2";
+console.log(rating2.name);
+
+//Object 3
+let rating3 = new Object();
+rating3.anz = 10;
+rating3.avrg = 4.5;
+rating3.name = "Bewertung3";
+
+console.log(rating2.name);
+
+process.exit;
+
+let ratingsarray = [rating1, rating2, rating3];
+
+//Aufgabe 3
