@@ -1,4 +1,3 @@
-
 const maxBerwertung = 5;    //Konstante für maximale Bewertung
 
 let ratings = {
@@ -8,7 +7,7 @@ let ratings = {
     bewertungsSumme : 0,
 
     durchschnitt: function() {
-    var avrg = (this.bewertungsSumme/anzahlBewertung);
+    var avrg = (this.bewertungsSumme/this.anzahlBewertung);
        return avrg;
     }
 };   
@@ -50,9 +49,11 @@ bewertungsListe.forEach(function(item, array ){
 
     console.log(item)
 });
-//Ausgabe von Array
+                                    //Ausgabe von Array
 
-console.log(ratings.durchschnitt);
+console.log("\n Durchschnittliche Bewertung:")
+console.log(ratings.durchschnitt());    //Ausgabe von Durchschnitt
+
 process.exit();
 rl.close();
 
