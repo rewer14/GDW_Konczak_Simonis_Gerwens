@@ -85,11 +85,12 @@ process.exit;
 
 // Aufgabe 5
 
+const hello = "hello";
+
 function con1() {
   const world = "World";
-  const hello = "hello";
 
-  return console.log($hello);
+  return console.log(hello + world);
 }
 
 con1();
