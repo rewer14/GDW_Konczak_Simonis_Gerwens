@@ -28,13 +28,16 @@ let i;
 let array1=[Berlin,Hamburg,Muenchen,Koeln,FrankfurtWest,Duesseldorf,Dortmund,Bremen,FrankfurtOst,Schmallenberg];
 const fs=require('fs');
 
-for(i=0;i<array1.length;i++){
-    fs.writeFile('cities.json',"Name:" + array1[i].name + "Einwohnerzahl:" + array1[i].einwohnerzahl +"Bundesland:" + array1[i].bundesland );
-}
+var json = JSON.stringify(array1, null,4)
+fs.writeFile('cities.json', json, 'utf8', function (err) {
+    if(err) throw err;
+    console.log('complete');
+    
+});
 
 
 
 
 
 
-
+    

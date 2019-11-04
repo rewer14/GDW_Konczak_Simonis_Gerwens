@@ -1,4 +1,52 @@
-
-
-
-
+[
+    {
+        "name": "Berlin",
+        "einwohnerzahl": 3644826,
+        "bundesland": "Berlin"
+    },
+    {
+        "name": "Hamburg",
+        "einwohnerzahl": 1841179,
+        "bundesland": "Hansestadt Hamburg"
+    },
+    {
+        "name": "Muenchen",
+        "einwohnerzahl": 1471508,
+        "bundesland": "Bayern"
+    },
+    {
+        "name": "Koeln",
+        "einwohnerzahl": 1085664,
+        "bundesland": "NRW"
+    },
+    {
+        "name": "Frankfurt am Main",
+        "einwohnerzahl": 753056,
+        "bundesland": "Hessen"
+    },
+    {
+        "name": "Duesseldorf",
+        "einwohnerzahl": 619294,
+        "bundesland": "NRW"
+    },
+    {
+        "name": "Dortmund",
+        "einwohnerzahl": 587010,
+        "bundesland": "NRW"
+    },
+    {
+        "name": "Bremen",
+        "einwohnerzahl": 566000,
+        "bundesland": "Bremen"
+    },
+    {
+        "name": "Frankfurt an der Oder",
+        "einwohnerzahl": 57873,
+        "bundesland": "Brandenburg"
+    },
+    {
+        "name": "Schmallenberg",
+        "einwohnerzahl": 24869,
+        "bundesland": "NRW"
+    }
+]
