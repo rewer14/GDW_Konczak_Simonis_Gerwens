@@ -29,11 +29,10 @@ const rl = readline.createInterface({
 //Funktion zum Einlesen
 
 
-console.log('zufällige Bewertung: \n');
-
 
 function zufall() {
 var random;
+console.log('zufällige Bewertung: \n');
 for(var i = 1; i<=20; i++) {        //Schleife für Zufallszahl
     random = getRandomInt(5);       //AUfruf von Zufallsfunktion
 
@@ -106,3 +105,24 @@ function auswahl(){
 }
 //Switch für Menueauswahl
 
+const hello = "hello";
+
+function helloWorld() {
+
+    const world = "world";
+    const zusammen = hello +world;
+    
+    console.log("\n\n"+zusammen);
+    
+}
+
+function worldHello() {
+
+    const world = "world"
+
+    const zusammen = world +hello;
+    console.log(zusammen);
+
+}
+helloWorld();
+worldHello();
