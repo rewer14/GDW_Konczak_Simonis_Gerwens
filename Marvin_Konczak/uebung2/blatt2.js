@@ -7,6 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+/*
 //random Funktion der JS Library
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -60,8 +61,35 @@ rating3.name = "Bewertung3";
 
 console.log(rating2.name);
 
-process.exit;
+let ratingsarray = [rating1];
 
-let ratingsarray = [rating1, rating2, rating3];
+ratingsarray.push(rating2);
+ratingsarray.push(rating3);
 
 //Aufgabe 3
+
+let durchschnitt = 0;
+
+for (let x = 0; x < 2; x++) {
+  durchschnitt += this.anz;
+}
+durchschnitt = durchschnitt / ratingsarray.length;
+
+console.log(durchschnitt);
+
+
+//Aufgabe 4
+
+process.exit;
+*/
+
+// Aufgabe 5
+
+function con1() {
+  const world = "World";
+  const hello = "hello";
+
+  return console.log($hello);
+}
+
+con1();
