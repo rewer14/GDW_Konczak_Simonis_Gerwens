@@ -16,9 +16,11 @@ var max_Bewertung = 5;
 var aktulleAnzahl = 0;
 var sch = 0;
 var anz;
+var i;
 var bewertung = 0;
 let array = [];
-var sum = 0
+var sum = 0;
+var rating=[];
 
 //Funktion für die Erstellung eines Objekts
 function Rating(name, anzahl, lastrating) {
@@ -26,12 +28,12 @@ function Rating(name, anzahl, lastrating) {
     this.anzahl = anzahl;
     this.lastrating = lastrating;
     this.durchschnitt = () => {
-        for (i = 0; i < this.rating.length; i++) {
-            sum += this.rating[i]
+        for (i = 0; i < rating.length; i++) {
+            sum += rating[i]
         }
         return (sum / this.anzahl);
     }
-};
+}
 
 let ratings = new Rating('', 0, 0); //new object
 
@@ -44,32 +46,41 @@ const entscheidung = function () {
                 selber(log);
                 break;
             case 2:
-                random(log);
+                random(log2);
                 break;
 
         }
 
     })
 
-}
+};
 
 // Funktion zum erzeugen von zufälligen Bewertungen
 const random = function (callback) {
     var random;
     for (var i = 1; i <= 20; i++) {
         random = getRandomInt(6);
-
+        rating.push(random)
         bewertung += random;
+        ratings.anzahl=ratings.anzahl+1;
         console.log(i, random, (bewertung / i));
     }
+
     callback((bewertung / i));
     rl.close();
-}
-//Konsolen Ausgabe
+};
+//Konsolen Ausgabe für Selber Eingabe
 const log = function (messange) {
     console.log(messange);
     console.log(array[0].name, array[0].anzahl, array[0].lastrating)
-}
+    process.exit();
+};
+//Konsolen Ausgabe für Random
+const log2 = function (messange) {
+    console.log(messange);
+    console.log(ratings.durchschnitt());
+    process.exit();
+};
 //Funktion zur Angabe einer Bewertung
 const name = function name() {
     rl.question('Was ist Ihr Name?', function (n) {
@@ -77,7 +88,7 @@ const name = function name() {
         ratings.name = n;
         entscheidung();
     })
-}
+};
 //Funktion zur selbst Eingabe einer Bewertung
 const selber = function eingabe(callback) {
     rl.question('Was ist Ihre Bewertung?', function (bew) {
@@ -92,25 +103,28 @@ const selber = function eingabe(callback) {
         rl.close()
     })
 
-}
+};
 //Konstante Werte
-const hello = "hello"
-const world="world"
+const hello = "hello";
+const world="world";
 //Konkenation von zwei Konstanten
 const konk=function(){
-    const zusammen=world + hello
+    const zusammen=world + hello;
     console.log(zusammen)
-}
+};
 
 const konk2=function(){
-    const zusammen2=hello+world
+    const zusammen2=hello+world;
     console.log(zusammen2)
-}
+};
 
 //Ausführen des Codes
-name()
-konk()
-konk2()
+name();
+
+//konk()
+//konk2()
+
+
 
 
 
