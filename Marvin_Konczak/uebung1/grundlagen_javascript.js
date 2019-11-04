@@ -8,6 +8,7 @@ const rl = readline.createInterface({
 //Variable mit Namen
 let name = "Marvin";
 
+//Randomfunktion der JS Library
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -87,5 +88,4 @@ function zufallsbewertung() {
   for (let i = 1; i <= 100; i++) random = getRandomInt(5);
   bewerten(random);
 }
-
 getRating(zufallsbewertung);
