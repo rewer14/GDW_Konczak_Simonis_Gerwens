@@ -87,5 +87,4 @@ function zufallsbewertung() {
   for (let i = 1; i <= 100; i++) random = getRandomInt(5);
   bewerten(random);
 }
-
 getRating(zufallsbewertung);
