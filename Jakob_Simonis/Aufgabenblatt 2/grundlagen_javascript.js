@@ -1,11 +1,18 @@
 
 const maxBerwertung = 5;    //Konstante für maximale Bewertung
-var anzahlBewertung = 20;   //Variable für Anzahl von Bewertungen
-var bewertung = 3;          //Bewertung selbst
-let ratings = new Object;   //Objekt für Bewertungen
-ratings.anzahlBewertung = 0;
-ratings.bewertung = 0;
-ratings.name;
+
+let ratings = {
+    anzahlBewertung: 0,
+    bewertung : 0,
+    name : "name",
+    bewertungsSumme : 0,
+
+    durchschnitt: function() {
+    var avrg = (this.bewertungsSumme/anzahlBewertung);
+       return avrg;
+    }
+};   
+
 let bewertungsListe = [ratings];   //Array von Bewertungen
 
 
@@ -31,6 +38,7 @@ var random;
 for(var i = 1; i<=20; i++) {        //Schleife für Zufallszahl
     random = getRandomInt(5);       //AUfruf von Zufallsfunktion
 
+    ratings.bewertungsSumme = ratings.bewertungsSumme + random;
     ratings.bewertung = random;     
     ratings.anzahlBewertung++;  
     ratings.name = i+"-te Bewertung";
@@ -44,6 +52,7 @@ bewertungsListe.forEach(function(item, array ){
 });
 //Ausgabe von Array
 
+console.log(ratings.durchschnitt);
 process.exit();
 rl.close();
 
@@ -57,6 +66,7 @@ rl.question('Geben sie die Bewertung ein: ',function(answer){
 
     if(answer <= maxBerwertung) {   //Darf maximale Bewertung nicht überschreiten
     ratings.anzahlBewertung+=1;             //Anzahl der Bewertungen erhöhen
+    ratings.bewertungsSumme += answer
     ratings.bewertung = parseInt(answer);   //Eingabe als int in Bewertung 
     console.log('Bewertung:',ratings.bewertung);    //Ausgabe   
     } else console.log('Falsche Eingabe')   //Ausgabe Fehlermeldung
@@ -69,7 +79,8 @@ rl.question('Geben sie die Bewertung ein: ',function(answer){
 
         console.log(item, index)
     });
-    	//Ausgabe von Array
+        //Ausgabe von Array
+        
     
 });
 
@@ -93,6 +104,4 @@ function auswahl(){
     }
 }
 //Switch für Menueauswahl
-
-
 
