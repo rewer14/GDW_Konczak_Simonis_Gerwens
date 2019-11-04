@@ -6,6 +6,34 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+//Funktion für die Erstellung eines Objekts
+function Stadt(name, einwohnerzahl, bundesland) {
+    this.name = name;
+    this.einwohnerzahl= einwohnerzahl;
+    this.bundesland = bundesland;
+}
+
+let Dortmund = new Stadt('Dortmund', 587010, 'NRW'); //new objects
+let Duesseldorf= new Stadt('Duesseldorf',619294, 'NRW');
+let Koeln=new Stadt('Koeln',1085664,'NRW');
+let Hamburg=new Stadt('Hamburg',1841179, 'Hansestadt Hamburg' );
+let Schmallenberg=new Stadt('Schmallenberg',24869,'NRW');
+let Muenchen=new Stadt('Muenchen', 1471508, 'Bayern');
+let Berlin= new Stadt('Berlin',3644826,'Berlin');
+let FrankfurtWest=new Stadt('Frankfurt am Main',753056, 'Hessen');
+let Bremen=new Stadt('Bremen', 566000, 'Bremen');
+let FrankfurtOst=new Stadt('Frankfurt an der Oder', 57873, 'Brandenburg');
+
+let i;
+let array1=[Berlin,Hamburg,Muenchen,Koeln,FrankfurtWest,Duesseldorf,Dortmund,Bremen,FrankfurtOst,Schmallenberg];
+const fs=require('fs');
+
+for(i=0;i<array1.length;i++){
+    fs.writeFile('cities.json',"Name:" + array1[i].name + "Einwohnerzahl:" + array1[i].einwohnerzahl +"Bundesland:" + array1[i].bundesland );
+}
+
+
+
 
 
 
