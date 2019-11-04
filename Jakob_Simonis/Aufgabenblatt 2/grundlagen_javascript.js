@@ -5,6 +5,7 @@ var bewertung = 3;          //Bewertung selbst
 let ratings = new Object;   //Objekt für Bewertungen
 ratings.anzahlBewertung = 0;
 ratings.bewertung = 0;
+ratings.name;
 let bewertungsListe = [ratings];   //Array von Bewertungen
 
 
@@ -31,27 +32,25 @@ function zufall() {
 var random;
 for(var i = 1; i<=20; i++) {
     random = getRandomInt(5);
-    bewertung+=random;
-    //console.log(i,random,(bewertung/i));
 
-    ratings.bewertung = (bewertung/i);
+    ratings.bewertung = random;
     ratings.anzahlBewertung++;
-    
-    console.log(i, random, ratings.bewertung);
-    bewertungsListe.push(ratings.bewertung, ratings.anzahlBewertung);
+    ratings.name = i+"-te Bewertung";
+
+    bewertungsListe.push(ratings.name, ratings.bewertung, ratings.anzahlBewertung);
 }
-console.log('Bewertung: ',(bewertung/i));
 
-bewertungsListe.forEach(function(item, index, array ){
+bewertungsListe.forEach(function(item, array ){
 
-    console.log(item, index)
+    console.log(item)
 });
 
 process.exit();
 rl.close();
 
-
 }
+
+
 
 function festlegen() {
 console.log('Bewertung festlegen: \n');
