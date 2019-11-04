@@ -27,17 +27,41 @@ let FrankfurtOst=new Stadt('Frankfurt an der Oder', 57873, 'Brandenburg');
 let i;
 let array1=[Berlin,Hamburg,Muenchen,Koeln,FrankfurtWest,Duesseldorf,Dortmund,Bremen,FrankfurtOst,Schmallenberg];
 const fs=require('fs');
+const jsonpath='cities.json'
 
 var json = JSON.stringify(array1, null,4)
-fs.writeFile('cities.json', json, 'utf8', function (err) {
-    if(err) throw err;
-    console.log('complete');
-    
-});
+
+
+//Expotiere Daten zu einem JSON File
+const pushtofile=function(arrayfromoutside) {
+    fs.writeFile(jsonpath, JSON.stringify(arrayfromoutside), 'utf8', function (err) {
+        if (err) throw err;
+        console.log('complete');
+    });
+};
+var array = [];
+
+//Hole Daten von JSON File und Speicher diese in einem Array
+const pullfromfile=function () {
+   var rawdata= fs.readFileSync(jsonpath);
+   var data=JSON.parse(rawdata);
+   for(let j=0;j<data.length;j++){
+       array.push([
+           data[j].name,data[j].einwohnerzahl,data[j].bundesland
+       ])
+   }
+   console.log(array.length)
+   for(i=0;i<array.length;i++){
+       console.log(array[i]);
+   }
+
+};
+
+//pushtofile(array1);
+pullfromfile();
 
 
 
 
 
 
-    
