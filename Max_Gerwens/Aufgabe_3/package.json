@@ -11,5 +11,8 @@
     "url": "https://github.com/Max603/GDW_Konczak_Simonis_Gerwens/tree/master/Max_Gerwens/Aufgabe_3"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "shortid": "^2.2.15"
+  }
 }
