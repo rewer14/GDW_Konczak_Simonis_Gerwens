@@ -37,5 +37,17 @@ const pushtofile=function(){
     });
 };
 
+function del() {
+
+
+
+}
+
+function add(city) {
+
+
+
+}
+
 pushtofile();
 
