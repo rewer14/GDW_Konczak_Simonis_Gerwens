@@ -48,5 +48,10 @@
         "name": "Schmallenberg",
         "einwohnerzahl": 24869,
         "bundesland": "NRW"
+    },
+    {
+        "name": "Kiel",
+        "einwohnerzahl": 340000,
+        "bundesland": "Schlswig Holstein"
     }
 ]

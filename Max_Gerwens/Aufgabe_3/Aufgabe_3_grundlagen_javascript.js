@@ -32,19 +32,19 @@ const jsonpath = 'cities.json';
 //Expotiere Daten zu einem JSON File
 const pushtofile = function (arrayfromoutside) {
     fs.writeFile(jsonpath, JSON.stringify(arrayfromoutside,null,4), 'utf8', function (err) {
-        if (err) throw err;
-        console.log('complete');
+        if (err) throw Console.log('Fehler beim Schreiben der Datei');
+        console.log('complete with write');
     });
 };
 
-function replacer() {
-
-}
 var array = [];
 
 //Hole Daten von JSON File und Speicher diese in einem Array
 const pullfromfile = function () {
-    let rawdata = fs.readFileSync(jsonpath);
+    let rawdata = fs.readFile(jsonpath,function (err) {
+        if (err) throw Console.log('Fehler beim Schreiben der Datei');
+        console.log('complete with pull');
+    });
     console.log(rawdata);
     let data=JSON.parse(rawdata);
     console.log('Test2');
@@ -68,10 +68,29 @@ const manipulatedata = function (arrayfromoutside, searchname) {
        }
     }
 };
+let City1=new Stadt('',0,'');
+const newCity=function(){
+    rl.question('Wie ist der Name der Stadt?',answer => {
+        City1.name=answer;
+            rl.question('Wieviele Einwohner hat die Stadt?',answer2 => {
+                City1.einwohnerzahl = parseInt(answer2);
+                rl.question('In welchem Bundesstaat?', answer3 => {
+                    City1.bundesland = answer3;
+                    array1.push(City1);
+                    pushtofile(array1);
+                    rl.close();
+                });
+            });
+    });
+
+
+
+};
 let array3=[];
 
-pushtofile(array1);
-//pullfromfile();
+//pushtofile(array1);
+newCity();
+//pullfromfile();;
 //manipulatedata(array1, "Berlin");
 //pushtofile(array1);
 
