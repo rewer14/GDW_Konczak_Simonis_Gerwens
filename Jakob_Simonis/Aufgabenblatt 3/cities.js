@@ -80,35 +80,33 @@ var neuerName;
 var neueEinwohnerzahl;
 var neuesBundesland;
 
-function add(city) {
+function add() {
 
     rl.question('Geben sie den Namen der Stadt ein, die sie hinzufuegen wollen: ',function(answer){
         
         neuerName = answer;
 
-       // rl.close();
+
+        rl.question('Geben sie die Einwohnerzahl der Stadt ein: ',function(answer2){
+            
+            neueEinwohnerzahl = parseInt(answer2);
         
 
-    rl.question('Geben sie die Einwohnerzahl der Stadt ein: ',function(answer2){
-        
-        neueEinwohnerzahl = parseInt(answer2);
-    
-       // rl.close();
-     
+            rl.question('Geben sie das Bundesland der Stadt ein, die sie hinzufuegen wollen: ',function(answer3){
+                
+                neuesBundesland = answer3;
+                
+                rl.close();
 
-    rl.question('Geben sie das Bundesland der Stadt ein, die sie hinzufuegen wollen: ',function(answer3){
-        
-        neuesBundesland = answer3;
-        
-        rl.close();
+                
+                let neueStadt = new Stadt(neuerName, neueEinwohnerzahl, neuesBundesland);
+                cities.push(neueStadt);
+                pushtofile();
 
+            }); 
          }); 
-      }); 
     });
 
-    let neueStadt = new Stadt(neuerName, neueEinwohnerzahl, neuesBundesland);
-    cities.push(neueStadt);
-    pushtofile();
 }
 
 
