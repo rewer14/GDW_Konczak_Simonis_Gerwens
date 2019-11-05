@@ -1,13 +1,3 @@
-/*const fs = require ('fs');
-
-const readJSON = (path, callback) => {
-    fs.readFile(path,'utf8',callback);
-};
-
-module.exports = {
-    readJSON
-};
-*/
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -45,16 +35,56 @@ const jsonpath='cities.json';   //Adresse der .json
 const pushtofile=function(){
     fs.writeFileSync(jsonpath,JSON.stringify(cities,null,4),function(err){
         if(err) throw err;
-        console.log('complete');       
+        console.log('complete');      
     });
 };
 //Array in .json file
 
+//pushtofile();
+
+rl.question('Geben sie ihre Wahl an:\n1fuer Loeschen\n2fuer Hinzufuegen ',function(answer) {
+
+    eingabe = parseInt(answer)
+    auswahl()
+});
+//Eingabe fuer Menue
+
+
+function auswahl(){
+
+    switch (eingabe) {
+        case 1: del(); break;
+        case 2: add(); break;
+        default: console.log("\nFalsche Eingabe!\n"); break;
+    }
+}
+//Switch für Menueauswahl
+
+
 function del() {
 
+    rl.question('Geben sie die Stadt ein, die sie loeschen wollen: ',function(answer){
 
+        for(i=0; i<cities.length; i++){
+            if(cities[i].name==answer) {
+                    cities.splice(i);
+            }
+            else console.log("Stadt nicht in Liste enthalten!");
+        }
+
+    rl.close();
+    });
+   // pushtofile();
+
+
+   cities.forEach(function(item, array){
+
+    console.log(item)
+});
 
 }
+
+
 
 function add(city) {
 
@@ -62,5 +92,4 @@ function add(city) {
 
 }
 
-pushtofile();
 
