@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Gerwens",
+        "nachname": "Max",
+        "Email": "max.gerwens@smail.th-koeln.de",
+        "Wohnort": {
+            "name": "Koeln",
+            "einwohnerzahl": 1085664,
+            "bundesland": "NRW"
+        }
+    },
+    {
+        "name": "Hans",
+        "nachname": "Dieter",
+        "Email": "hans.dieter@web.de",
+        "Wohnort": {
+            "name": "Hamburg",
+            "einwohnerzahl": 1841179,
+            "bundesland": "Hansestadt Hamburg"
+        }
+    },
+    {
+        "name": "Susi",
+        "nachname": "Dusi",
+        "Email": "susi.dusi@gmail.com",
+        "Wohnort": {
+            "name": "Frankfurt am Main",
+            "einwohnerzahl": 753056,
+            "bundesland": "Hessen"
+        }
+    }
+]
