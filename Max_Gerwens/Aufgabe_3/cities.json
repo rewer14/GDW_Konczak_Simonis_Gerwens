@@ -1,10 +1,5 @@
 [
     {
-        "name": "Berlin",
-        "einwohnerzahl": 3644826,
-        "bundesland": "Berlin"
-    },
-    {
         "name": "Hamburg",
         "einwohnerzahl": 1841179,
         "bundesland": "Hansestadt Hamburg"
@@ -48,10 +43,10 @@
         "name": "Schmallenberg",
         "einwohnerzahl": 24869,
         "bundesland": "NRW"
-    },
-    {
-        "name": "Kiel",
-        "einwohnerzahl": 340000,
-        "bundesland": "Schlswig Holstein"
+    }
+]  {
+        "name": "Schmallenberg",
+        "einwohnerzahl": 24869,
+        "bundesland": "NRW"
     }
 ]

@@ -13,6 +13,22 @@ function Stadt(name, einwohnerzahl, bundesland) {
     this.bundesland = bundesland;
 }
 
+function User(name, nachname, Email, Wohnort){
+    this.name=name;
+    this.nachname=nachname;
+    this.Email=Email;
+    this.Wohnort=Wohnort;
+}
+
+
+
+
+
+
+
+
+
+
 let Dortmund = new Stadt('Dortmund', 587010, 'NRW'); //new objects
 let Duesseldorf = new Stadt('Duesseldorf', 619294, 'NRW');
 let Koeln = new Stadt('Koeln', 1085664, 'NRW');
@@ -24,14 +40,21 @@ let FrankfurtWest = new Stadt('Frankfurt am Main', 753056, 'Hessen');
 let Bremen = new Stadt('Bremen', 566000, 'Bremen');
 let FrankfurtOst = new Stadt('Frankfurt an der Oder', 57873, 'Brandenburg');
 
-var array1 = [Berlin, Hamburg, Muenchen, Koeln, FrankfurtWest, Duesseldorf, Dortmund, Bremen, FrankfurtOst, Schmallenberg];
+let Max=new User('Gerwens','Max','max.gerwens@smail.th-koeln.de',Koeln);
+let Hans=new User('Hans','Dieter','hans.dieter@web.de',Hamburg);
+let Susi=new User('Susi','Dusi','susi.dusi@gmail.com',FrankfurtWest);
+
+var cityarray = [Berlin, Hamburg, Muenchen, Koeln, FrankfurtWest, Duesseldorf, Dortmund, Bremen, FrankfurtOst, Schmallenberg];
+var userarray=[Max,Hans,Susi];
 const fs = require('fs');
-const jsonpath = 'cities.json';
+const citypath = 'cities.json';
+const userpath='user.json';
+
 
 
 //Expotiere Daten zu einem JSON File
-const pushtofile = function (arrayfromoutside) {
-    fs.writeFile(jsonpath, JSON.stringify(arrayfromoutside,null,4), 'utf8', function (err) {
+const pushtofile = function (arrayfromoutside,path) {
+    fs.writeFile(path, JSON.stringify(arrayfromoutside,null,4), 'utf8', function (err) {
         if (err) throw Console.log('Fehler beim Schreiben der Datei');
         console.log('complete with write');
     });
@@ -40,8 +63,8 @@ const pushtofile = function (arrayfromoutside) {
 var array = [];
 
 //Hole Daten von JSON File und Speicher diese in einem Array
-const pullfromfile = function () {
-    let rawdata = fs.readFile(jsonpath,function (err) {
+const pullfromfile = function (path) {
+    let rawdata = fs.readFile(path,function (err) {
         if (err) throw Console.log('Fehler beim Schreiben der Datei');
         console.log('complete with pull');
     });
@@ -76,8 +99,8 @@ const newCity=function(){
                 City1.einwohnerzahl = parseInt(answer2);
                 rl.question('In welchem Bundesstaat?', answer3 => {
                     City1.bundesland = answer3;
-                    array1.push(City1);
-                    pushtofile(array1);
+                    cityarray.push(City1);
+                    pushtofile(cityarray);
                     rl.close();
                 });
             });
@@ -88,11 +111,11 @@ const newCity=function(){
 };
 let array3=[];
 
-//pushtofile(array1);
-newCity();
+pushtofile(cityarray,citypath);
+//newCity();
 //pullfromfile();;
-//manipulatedata(array1, "Berlin");
-//pushtofile(array1);
+//manipulatedata(cityarray, "Berlin");
+//pushtofile(cityarray,citypath);
 
 
 
