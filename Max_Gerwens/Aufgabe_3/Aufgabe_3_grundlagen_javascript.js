@@ -6,13 +6,13 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-//Funktion für die Erstellung eines Objekts
-function Stadt(name, einwohnerzahl, bundesland) {
+//Funktion für die Erstellung des Objektes für die Stadt
+function City(name, einwohnerzahl, bundesland) {
     this.name = name;
     this.einwohnerzahl = einwohnerzahl;
     this.bundesland = bundesland;
 }
-
+//Funktion für die Erstellung des Objekts für die Benutzer
 function User(name, nachname, Email, Wohnort){
     this.name=name;
     this.nachname=nachname;
@@ -20,25 +20,16 @@ function User(name, nachname, Email, Wohnort){
     this.Wohnort=Wohnort;
 }
 
-
-
-
-
-
-
-
-
-
-let Dortmund = new Stadt('Dortmund', 587010, 'NRW'); //new objects
-let Duesseldorf = new Stadt('Duesseldorf', 619294, 'NRW');
-let Koeln = new Stadt('Koeln', 1085664, 'NRW');
-let Hamburg = new Stadt('Hamburg', 1841179, 'Hansestadt Hamburg');
-let Schmallenberg = new Stadt('Schmallenberg', 24869, 'NRW');
-let Muenchen = new Stadt('Muenchen', 1471508, 'Bayern');
-let Berlin = new Stadt('Berlin', 3644826, 'Berlin');
-let FrankfurtWest = new Stadt('Frankfurt am Main', 753056, 'Hessen');
-let Bremen = new Stadt('Bremen', 566000, 'Bremen');
-let FrankfurtOst = new Stadt('Frankfurt an der Oder', 57873, 'Brandenburg');
+let Dortmund = new City('Dortmund', 587010, 'NRW'); //new objects
+let Duesseldorf = new City('Duesseldorf', 619294, 'NRW');
+let Koeln = new City('Koeln', 1085664, 'NRW');
+let Hamburg = new City('Hamburg', 1841179, 'Hansestadt Hamburg');
+let Schmallenberg = new City('Schmallenberg', 24869, 'NRW');
+let Muenchen = new City('Muenchen', 1471508, 'Bayern');
+let Berlin = new City('Berlin', 3644826, 'Berlin');
+let FrankfurtWest = new City('Frankfurt am Main', 753056, 'Hessen');
+let Bremen = new City('Bremen', 566000, 'Bremen');
+let FrankfurtOst = new City('Frankfurt an der Oder', 57873, 'Brandenburg');
 
 let Max=new User('Gerwens','Max','max.gerwens@smail.th-koeln.de',Koeln);
 let Hans=new User('Hans','Dieter','hans.dieter@web.de',Hamburg);
@@ -91,11 +82,11 @@ const manipulatedata = function (arrayfromoutside, searchname) {
        }
     }
 };
-let City1=new Stadt('',0,'');
+let City1=new City('',0,'');
 const newCity=function(){
-    rl.question('Wie ist der Name der Stadt?',answer => {
+    rl.question('Wie ist der Name der City?',answer => {
         City1.name=answer;
-            rl.question('Wieviele Einwohner hat die Stadt?',answer2 => {
+            rl.question('Wieviele Einwohner hat die City?',answer2 => {
                 City1.einwohnerzahl = parseInt(answer2);
                 rl.question('In welchem Bundesstaat?', answer3 => {
                     City1.bundesland = answer3;
