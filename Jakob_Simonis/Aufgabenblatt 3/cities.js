@@ -42,7 +42,7 @@ const pushtofile=function(){
 
 //pushtofile();
 
-rl.question('Geben sie ihre Wahl an:\n1fuer Loeschen\n2fuer Hinzufuegen ',function(answer) {
+rl.question('Geben sie ihre Wahl an:\n1fuer Loeschen\n2fuer Hinzufuegen: ',function(answer) {
 
     eingabe = parseInt(answer)
     auswahl()
@@ -76,12 +76,39 @@ loop1:
     });
 }
 
-
+var neuerName;
+var neueEinwohnerzahl;
+var neuesBundesland;
 
 function add(city) {
 
+    rl.question('Geben sie den Namen der Stadt ein, die sie hinzufuegen wollen: ',function(answer){
+        
+        neuerName = answer;
 
+       // rl.close();
+        
 
+    rl.question('Geben sie die Einwohnerzahl der Stadt ein: ',function(answer2){
+        
+        neueEinwohnerzahl = parseInt(answer2);
+    
+       // rl.close();
+     
+
+    rl.question('Geben sie das Bundesland der Stadt ein, die sie hinzufuegen wollen: ',function(answer3){
+        
+        neuesBundesland = answer3;
+        
+        rl.close();
+
+         }); 
+      }); 
+    });
+
+    let neueStadt = new Stadt(neuerName, neueEinwohnerzahl, neuesBundesland);
+    cities.push(neueStadt);
+    pushtofile();
 }
 
 
