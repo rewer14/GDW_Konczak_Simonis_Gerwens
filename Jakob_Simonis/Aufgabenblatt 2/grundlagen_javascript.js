@@ -29,7 +29,6 @@ const rl = readline.createInterface({
 //Funktion zum Einlesen
 
 
-
 function zufall() {
     var random;
     console.log('zufällige Bewertung: \n');
