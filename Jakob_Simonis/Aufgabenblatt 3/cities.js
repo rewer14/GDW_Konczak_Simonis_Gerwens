@@ -64,24 +64,16 @@ function auswahl(){
 function del() {
 
     rl.question('Geben sie die Stadt ein, die sie loeschen wollen: ',function(answer){
-
+loop1:
         for(i=0; i<cities.length; i++){
             if(cities[i].name==answer) {
                     cities.splice(i);
+                    break loop1;
+                    pushtofile();
             }
-            else console.log("Stadt nicht in Liste enthalten!");
         }
-
     rl.close();
     });
-   // pushtofile();
-
-
-   cities.forEach(function(item, array){
-
-    console.log(item)
-});
-
 }
 
 
