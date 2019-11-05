@@ -90,7 +90,13 @@ const hello = "hello";
 function con1() {
   const world = "World";
 
-  return console.log(hello + world);
+  return console.log(hello + " " + world);
+}
+
+function con2(world) {
+  return console.log(world + " " + hello);
 }
 
 con1();
+con2("World"); //World muss übergeben werden weil world nur in funktion verfügbar
+process.exit();
