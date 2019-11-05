@@ -85,11 +85,18 @@ process.exit;
 
 // Aufgabe 5
 
+const hello = "hello";
+
 function con1() {
   const world = "World";
-  const hello = "hello";
 
-  return console.log($hello);
+  return console.log(hello + " " + world);
+}
+
+function con2(world) {
+  return console.log(world + " " + hello);
 }
 
 con1();
+con2("World"); //World muss übergeben werden weil world nur in funktion verfügbar
+process.exit();
