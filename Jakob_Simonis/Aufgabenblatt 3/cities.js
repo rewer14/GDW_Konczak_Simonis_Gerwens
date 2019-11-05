@@ -55,7 +55,7 @@ function auswahl(){
     switch (eingabe) {
         case 1: del(); break;
         case 2: add(); break;
-        default: console.log("\nFalsche Eingabe!\n"); break;
+        default: console.log("\nFalsche Eingabe!\n"); pushtofile(); process.exit(); break;
     }
 }
 //Switch für Menueauswahl
@@ -67,9 +67,9 @@ function del() {
 loop1:
         for(i=0; i<cities.length; i++){
             if(cities[i].name==answer) {
-                    cities.splice(i);
-                    break loop1;
+                    delete cities[i];
                     pushtofile();
+                    break loop1;
             }
         }
     rl.close();
