@@ -1,10 +1,5 @@
 [
     {
-        "name": "Hamburg",
-        "einwohnerzahl": 1841179,
-        "bundesland": "Hansestadt Hamburg"
-    },
-    {
         "name": "Muenchen",
         "einwohnerzahl": 1471508,
         "bundesland": "Bayern"
@@ -43,10 +38,20 @@
         "name": "Schmallenberg",
         "einwohnerzahl": 24869,
         "bundesland": "NRW"
-    }
-]  {
-        "name": "Schmallenberg",
-        "einwohnerzahl": 24869,
+    },
+    {
+        "name": "Kieh",
+        "einwohnerzahl": 300000,
+        "bundesland": "sch"
+    },
+    {
+        "name": "Gummersbach",
+        "einwohnerzahl": 650000,
         "bundesland": "NRW"
+    },
+    {
+        "name": "Potsdam",
+        "einwohnerzahl": 200000,
+        "bundesland": "Brandenbueg"
     }
 ]

@@ -12,12 +12,13 @@ function City(name, einwohnerzahl, bundesland) {
     this.einwohnerzahl = einwohnerzahl;
     this.bundesland = bundesland;
 }
+
 //Funktion für die Erstellung des Objekts für die Benutzer
-function User(name, nachname, Email, Wohnort){
-    this.name=name;
-    this.nachname=nachname;
-    this.Email=Email;
-    this.Wohnort=Wohnort;
+function User(name, nachname, Email, Wohnort) {
+    this.name = name;
+    this.nachname = nachname;
+    this.Email = Email;
+    this.Wohnort = Wohnort;
 }
 
 let Dortmund = new City('Dortmund', 587010, 'NRW'); //new objects
@@ -31,85 +32,108 @@ let FrankfurtWest = new City('Frankfurt am Main', 753056, 'Hessen');
 let Bremen = new City('Bremen', 566000, 'Bremen');
 let FrankfurtOst = new City('Frankfurt an der Oder', 57873, 'Brandenburg');
 
-let Max=new User('Gerwens','Max','max.gerwens@smail.th-koeln.de',Koeln);
-let Hans=new User('Hans','Dieter','hans.dieter@web.de',Hamburg);
-let Susi=new User('Susi','Dusi','susi.dusi@gmail.com',FrankfurtWest);
+let Max = new User('Gerwens', 'Max', 'max.gerwens@smail.th-koeln.de', Koeln);
+let Hans = new User('Hans', 'Dieter', 'hans.dieter@web.de', Hamburg);
+let Susi = new User('Susi', 'Dusi', 'susi.dusi@gmail.com', FrankfurtWest);
 
-var cityarray = [Berlin, Hamburg, Muenchen, Koeln, FrankfurtWest, Duesseldorf, Dortmund, Bremen, FrankfurtOst, Schmallenberg];
-var userarray=[Max,Hans,Susi];
+//var cityarray = [Berlin, Hamburg, Muenchen, Koeln, FrankfurtWest, Duesseldorf, Dortmund, Bremen, FrankfurtOst, Schmallenberg];
+var cityarray = [];
+//var userarray=[Max,Hans,Susi];
+var userarray = [];
 const fs = require('fs');
-const citypath = 'cities.json';
-const userpath='user.json';
-
+const citypath = './cities.json';
+const userpath = './user.json';
 
 
 //Expotiere Daten zu einem JSON File
-const pushtofile = function (arrayfromoutside,path) {
-    fs.writeFile(path, JSON.stringify(arrayfromoutside,null,4), 'utf8', function (err) {
-        if (err) throw Console.log('Fehler beim Schreiben der Datei');
-        console.log('complete with write');
+function pushtofile(arrayfromoutside, path) {
+    return new Promise((resolve, reject) => {
+        fs.writeFileSync('./cities.json', JSON.stringify(arrayfromoutside, null, 4));
+        resolve('done')
+    })
+
+
+}
+
+//Holen der Daten über Promise
+function ReadJSON() {
+    return new Promise((resolve, reject) => {
+        cityarray = require(citypath);
+        userarray = require(userpath);
+        resolve('done')
     });
-};
+}
+
 
 var array = [];
 
-//Hole Daten von JSON File und Speicher diese in einem Array
-const pullfromfile = function (path) {
-    let rawdata = fs.readFile(path,function (err) {
-        if (err) throw Console.log('Fehler beim Schreiben der Datei');
-        console.log('complete with pull');
+//Lösche ein Element
+function manipulatedata(arrayfromoutside) {
+    return new Promise((resolve, reject) => {
+        rl.question('Welche Stdt möchten Sie entfernen?', answer => {
+
+            for (let k = 0; k < arrayfromoutside.length; k++) {
+                if (arrayfromoutside[k].name === answer) {
+                    console.log(arrayfromoutside)
+                    arrayfromoutside.splice(k, 1);
+                }
+            }
+            resolve('done');
+        })
     });
-    console.log(rawdata);
-    let data=JSON.parse(rawdata);
-    console.log('Test2');
-    for (let j = 0; j < data.length; j++) {
-        array.push([
-            data[j].name, data[j].einwohnerzahl, data[j].bundesland
-        ])
-    }
-    console.log(array.length)
-    for (let i = 0; i < array.length; i++) {
-        console.log(array[i]);
-    }
 
-};
+}
 
-const manipulatedata = function (arrayfromoutside, searchname) {
-    for (let k = 0; k < arrayfromoutside.length; k++) {
-       if (arrayfromoutside[k].name === searchname) {
-           console.log(arrayfromoutside)
-           arrayfromoutside.splice(k,1);
-       }
-    }
-};
-let City1=new City('',0,'');
-const newCity=function(){
-    rl.question('Wie ist der Name der City?',answer => {
-        City1.name=answer;
-            rl.question('Wieviele Einwohner hat die City?',answer2 => {
+let City1 = new City('', 0, '');
+
+//neue Stadt anlegen
+function newCity() {
+    return new Promise((resolve, reject) => {
+        rl.question('Wie ist der Name der City?', answer => {
+            City1.name = answer;
+            rl.question('Wieviele Einwohner hat die City?', answer2 => {
                 City1.einwohnerzahl = parseInt(answer2);
                 rl.question('In welchem Bundesstaat?', answer3 => {
                     City1.bundesland = answer3;
                     cityarray.push(City1);
                     pushtofile(cityarray);
                     rl.close();
+                    process.exit();
                 });
             });
-    });
+        });
+        resolve('done')
+    })
+
+}
+
+async function f() {
+
+    try {
+        await ReadJSON()
+    } catch (error) {
+        console.log(error)
+    }
+    try {
+        await manipulatedata(cityarray)
+    } catch (error) {
+        console.log(error)
+    }
+    try {
+        await newCity()
+    } catch (error) {
+        console.log(error)
+    }
+    try {
+        await pushtofile(cityarray, citypath)
+    } catch (error) {
+        console.log(error)
+    }
 
 
+}
 
-};
-let array3=[];
-
-pushtofile(cityarray,citypath);
-//newCity();
-//pullfromfile();;
-//manipulatedata(cityarray, "Berlin");
-//pushtofile(cityarray,citypath);
-
-
-
+f();
 
 
 
