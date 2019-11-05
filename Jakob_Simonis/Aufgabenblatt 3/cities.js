@@ -14,7 +14,7 @@ const rl = readline.createInterface({
      input: process.stdin, 
      output: process.stdout 
     });
-//Funktion zum Einlesen
+//Funktion zum Einlesen 
 
 
 function Stadt(name,einwohnerzahl,bundesland){
@@ -45,7 +45,7 @@ const jsonpath='cities.json';   //Adresse der .json
 const pushtofile=function(){
     fs.writeFileSync(jsonpath,JSON.stringify(cities,null,4),function(err){
         if(err) throw err;
-        console.log('complete');        
+        console.log('complete');       
     });
 };
 //Array in .json file
