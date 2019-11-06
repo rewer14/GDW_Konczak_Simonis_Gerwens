@@ -45,23 +45,18 @@
         "bundesland": "NRW"
     },
     {
-        "name": "Berlin",
-        "einwohnerzahl": 3600000,
-        "bundesland": "Berlin"
-    },
-    {
         "name": "Hamburg",
         "einwohnerzahl": 1300000,
         "bundesland": "Hansestadt Hamburg"
     },
     {
-        "name": "Berlin",
-        "einwohnerzahl": 36000000,
-        "bundesland": "Berlin"
+        "name": "Oberkirchen",
+        "einwohnerzahl": 850,
+        "bundesland": "NRW"
     },
     {
-        "name": "Kiehl",
-        "einwohnerzahl": 300000,
-        "bundesland": "Schleswig Holstein"
+        "name": "Berlin",
+        "einwohnerzahl": 3600000,
+        "bundesland": "Berlin"
     }
 ]
