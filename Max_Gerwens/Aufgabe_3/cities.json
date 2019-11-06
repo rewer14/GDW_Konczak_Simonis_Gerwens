@@ -53,5 +53,15 @@
         "name": "Hamburg",
         "einwohnerzahl": 1300000,
         "bundesland": "Hansestadt Hamburg"
+    },
+    {
+        "name": "Berlin",
+        "einwohnerzahl": 36000000,
+        "bundesland": "Berlin"
+    },
+    {
+        "name": "Kiehl",
+        "einwohnerzahl": 300000,
+        "bundesland": "Schleswig Holstein"
     }
 ]

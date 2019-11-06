@@ -106,7 +106,7 @@ function newCity() {
 
 }
 
-async function f() {
+async function main() {
 
     try {
         await ReadJSON()
@@ -132,7 +132,7 @@ async function f() {
 
 }
 
-f();
+main();
 
 
 
