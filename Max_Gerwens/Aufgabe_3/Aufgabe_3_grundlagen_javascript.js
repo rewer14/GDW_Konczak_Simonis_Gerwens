@@ -70,11 +70,10 @@ var array = [];
 //Lösche ein Element
 function manipulatedata(arrayfromoutside) {
     return new Promise((resolve, reject) => {
-        rl.question('Welche Stdt möchten Sie entfernen?', answer => {
+        rl.question('Welche Stdt möchten Sie entfernen?\n', answer => {
 
             for (let k = 0; k < arrayfromoutside.length; k++) {
                 if (arrayfromoutside[k].name === answer) {
-                    console.log(arrayfromoutside)
                     arrayfromoutside.splice(k, 1);
                 }
             }
@@ -89,11 +88,11 @@ let City1 = new City('', 0, '');
 //neue Stadt anlegen
 function newCity() {
     return new Promise((resolve, reject) => {
-        rl.question('Wie ist der Name der City?', answer => {
+        rl.question('Wie ist der Name der City?\n', answer => {
             City1.name = answer;
-            rl.question('Wieviele Einwohner hat die City?', answer2 => {
+            rl.question('Wieviele Einwohner hat die City?\n', answer2 => {
                 City1.einwohnerzahl = parseInt(answer2);
-                rl.question('In welchem Bundesstaat?', answer3 => {
+                rl.question('In welchem Bundesstaat?\n', answer3 => {
                     City1.bundesland = answer3;
                     cityarray.push(City1);
                     pushtofile(cityarray);

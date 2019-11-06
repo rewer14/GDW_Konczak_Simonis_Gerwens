@@ -40,18 +40,18 @@
         "bundesland": "NRW"
     },
     {
-        "name": "Kieh",
-        "einwohnerzahl": 300000,
-        "bundesland": "sch"
-    },
-    {
         "name": "Gummersbach",
         "einwohnerzahl": 650000,
         "bundesland": "NRW"
     },
     {
-        "name": "Potsdam",
-        "einwohnerzahl": 200000,
-        "bundesland": "Brandenbueg"
+        "name": "Berlin",
+        "einwohnerzahl": 3600000,
+        "bundesland": "Berlin"
+    },
+    {
+        "name": "Hamburg",
+        "einwohnerzahl": 1300000,
+        "bundesland": "Hansestadt Hamburg"
     }
 ]
