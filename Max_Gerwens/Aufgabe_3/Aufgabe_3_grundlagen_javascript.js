@@ -84,7 +84,6 @@ function manipulatedata(arrayfromoutside) {
 }
 
 let City1 = new City('', 0, '');
-
 //neue Stadt anlegen
 function newCity() {
     return new Promise((resolve, reject) => {
