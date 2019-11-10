@@ -53,6 +53,7 @@ const addCity = function( city ){
       }
     })
   });
+  
 }
 
 module.exports = {
