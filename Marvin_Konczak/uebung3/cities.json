@@ -1,17 +1,1 @@
-[
-  {
-    "name": "Berlin",
-    "einwohnerzahl": 36130000,
-    "bundesland": "Berlin"
-  },
-  {
-    "name": "Hamburg",
-    "einwohnerzahl": 1800000,
-    "bundesland": "Hamburg"
-  },
-  {
-    "name": "München",
-    "einwohnerzahl": 1400000,
-    "bundesland": "Bayern"
-  }
-]
+[{"name":"Berlin","einwohnerzahl":36130000,"bundesland":"Berlin"},{"name":"München","einwohnerzahl":1400000,"bundesland":"Bayern"}]{"name":"Vertania City","einwohnerzahl":10,"bundesland":"Kanto"},{"name":"Vertania City","einwohnerzahl":10,"bundesland":"Kanto"}]
