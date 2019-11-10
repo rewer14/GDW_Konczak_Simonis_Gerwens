@@ -7,6 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
+
 /*
 //random Funktion der JS Library
 function getRandomInt(max) {
