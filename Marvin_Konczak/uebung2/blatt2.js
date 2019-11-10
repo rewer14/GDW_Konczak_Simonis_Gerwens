@@ -91,7 +91,6 @@ const hello = "hello";
 
 function con1() {
   const world = "World";
-
   return console.log(hello + " " + world);
 }
 
