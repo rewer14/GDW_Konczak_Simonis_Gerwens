@@ -175,7 +175,7 @@ frage().then(menue(ende));
         console.log(error)
     }
 }*/
-
+rl.question
 main();
 
 
