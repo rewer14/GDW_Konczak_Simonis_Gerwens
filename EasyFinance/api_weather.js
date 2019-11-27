@@ -1,22 +1,18 @@
-'use strict'
+'use strict';
 const readline = require('readline');
 //readline
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
+const fs = require('fs');
+var openweatherkey='04933593b9bfcebbd6eb4c1f5312cefe';
+var request = require('request');
 
-const weatherbyname=function (name) {
-var key='04933593b9bfcebbd6eb4c1f5312cefe';
-fetch('https://api.openweathermap.org/data/2.5/weather?q='+ name+ '&appid'+key)
-    .then(function(resp) {return resp.json})
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function () {
-    })
-};
-window.onload=function () {
-weatherbyname(Gummersbach);
-};
+request('https://api.openweathermap.org/data/2.5/weather?q=Gummersbach&appid='+openweatherkey, function (error, response, data) {
+        fs.writeFileSync('./weather.json', JSON.stringify(data, null, 4));
+        process.exit()
+        console.log(data) // Print the google web page.
+});
+
 

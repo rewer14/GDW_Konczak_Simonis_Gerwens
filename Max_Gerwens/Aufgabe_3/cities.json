@@ -1,62 +1,52 @@
 [
     {
-        "name": "Muenchen",
-        "einwohnerzahl": 1471508,
-        "bundesland": "Bayern"
-    },
-    {
-        "name": "Koeln",
-        "einwohnerzahl": 1085664,
+        "name": "Vizekusen",
+        "einwohnerzahl": 3400000,
         "bundesland": "NRW"
-    },
-    {
-        "name": "Frankfurt am Main",
-        "einwohnerzahl": 753056,
-        "bundesland": "Hessen"
-    },
-    {
-        "name": "Duesseldorf",
-        "einwohnerzahl": 619294,
-        "bundesland": "NRW"
-    },
-    {
-        "name": "Dortmund",
-        "einwohnerzahl": 587010,
-        "bundesland": "NRW"
-    },
-    {
-        "name": "Bremen",
-        "einwohnerzahl": 566000,
-        "bundesland": "Bremen"
-    },
-    {
-        "name": "Frankfurt an der Oder",
-        "einwohnerzahl": 57873,
-        "bundesland": "Brandenburg"
-    },
-    {
-        "name": "Schmallenberg",
-        "einwohnerzahl": 24869,
-        "bundesland": "NRW"
-    },
-    {
-        "name": "Gummersbach",
-        "einwohnerzahl": 650000,
-        "bundesland": "NRW"
-    },
-    {
-        "name": "Hamburg",
-        "einwohnerzahl": 1300000,
-        "bundesland": "Hansestadt Hamburg"
     },
     {
         "name": "Berlin",
-        "einwohnerzahl": 3600000,
+        "einwohnerzahl": 2300000,
         "bundesland": "Berlin"
     },
     {
-        "name": "Leverkusen",
-        "einwohnerzahl": 400000,
+        "name": "Berlin",
+        "einwohnerzahl": 2300000,
+        "bundesland": "Berlin"
+    },
+    {
+        "name": "Ficken",
+        "einwohnerzahl": 696969,
+        "bundesland": "Berlin"
+    },
+    {
+        "name": "Ficken",
+        "einwohnerzahl": 696969,
+        "bundesland": "Berlin"
+    },
+    {
+        "name": "penid",
+        "einwohnerzahl": null,
+        "bundesland": "JJJJ'"
+    },
+    {
+        "name": "penid",
+        "einwohnerzahl": null,
+        "bundesland": "JJJJ'"
+    },
+    {
+        "name": "zu",
+        "einwohnerzahl": 34,
         "bundesland": "NRW"
+    },
+    {
+        "name": "ju",
+        "einwohnerzahl": 45,
+        "bundesland": "t"
+    },
+    {
+        "name": "zu",
+        "einwohnerzahl": 2,
+        "bundesland": "hu"
     }
 ]

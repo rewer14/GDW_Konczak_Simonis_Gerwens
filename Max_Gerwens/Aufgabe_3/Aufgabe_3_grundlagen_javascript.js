@@ -5,6 +5,7 @@ const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
+let z = 1000000;
 
 //Funktion für die Erstellung des Objektes für die Stadt
 function City(name, einwohnerzahl, bundesland) {
@@ -49,10 +50,9 @@ const userpath = './user.json';
 function pushtofile(arrayfromoutside, path) {
     return new Promise((resolve, reject) => {
         fs.writeFileSync('./cities.json', JSON.stringify(arrayfromoutside, null, 4));
+        process.exit()
         resolve('done')
     })
-
-
 }
 
 //Holen der Daten über Promise
@@ -66,24 +66,27 @@ function ReadJSON() {
 
 
 var array = [];
+var y = 0;
 
 //Lösche ein Element
 function manipulatedata(arrayfromoutside) {
     return new Promise((resolve, reject) => {
-        rl.question('Welche Stdt möchten Sie entfernen?\n', answer => {
-
-            for (let k = 0; k < arrayfromoutside.length; k++) {
+        rl.question('Welche Stadt möchten Sie entfernen?\n', answer => {
+            for (var k = 0; k < arrayfromoutside.length; k++) {
                 if (arrayfromoutside[k].name === answer) {
                     arrayfromoutside.splice(k, 1);
                 }
             }
-            resolve('done');
-        })
+           main();
+            resolve('Done');
+        });
+
     });
 
 }
 
 let City1 = new City('', 0, '');
+
 //neue Stadt anlegen
 function newCity() {
     return new Promise((resolve, reject) => {
@@ -91,28 +94,72 @@ function newCity() {
             City1.name = answer;
             rl.question('Wieviele Einwohner hat die City?\n', answer2 => {
                 City1.einwohnerzahl = parseInt(answer2);
-                rl.question('In welchem Bundesstaat?\n', answer3 => {
+                rl.question('In welchem Bundesland?\n', answer3 => {
                     City1.bundesland = answer3;
                     cityarray.push(City1);
-                    pushtofile(cityarray);
-                    rl.close();
-                    process.exit();
+                    main()
                 });
             });
         });
+
         resolve('done')
     })
 
 }
 
-async function main() {
+var ende = 0;
 
-    try {
+function frage() {
+   return new Promise((resolve,reject) => {
+        rl.question('1 für new City\n2 für löschen\n3 für ende', answer => {
+            ende = parseInt(answer);
+            menue(ende);
+            resolve('done')
+        });
+
+    })
+}
+
+async function menue(answer) {
+    switch (answer) {
+        case 1: {
+            await ReadJSON().then(newCity());
+            break;
+        }
+        case 2:{
+            await ReadJSON().then(manipulatedata(cityarray));
+            break;
+        }
+        case 3:{
+            await pushtofile(cityarray,citypath);
+            break;
+        }
+
+
+    }
+}
+
+async function main() {
+frage().then(menue(ende));
+}
+
+
+/*    try {
         await ReadJSON()
     } catch (error) {
         console.log(error)
-    }
-    try {
+    }*/
+/*  try {
+      await test();
+  } catch (error) {
+      console.log(error)
+  }*/
+/*try {
+    await test2()
+} catch (error) {
+    console.log(error)
+}*/
+/*    try {
         await manipulatedata(cityarray)
     } catch (error) {
         console.log(error)
@@ -127,9 +174,11 @@ async function main() {
     } catch (error) {
         console.log(error)
     }
-}
+}*/
 
 main();
+
+
 
 
 
