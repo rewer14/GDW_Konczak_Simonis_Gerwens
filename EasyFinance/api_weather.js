@@ -64,7 +64,6 @@ function getJson() {
 //https://api.meteostat.net/v1/history/monthly?station=+ station + '&start=' + startdate + '&end=' + enddate + '&key=' + meteostat
 function datarequest() {
     rl.question('\nIhr Auswahl\n',answer=>{
-        console.log('Test');
         station = stationarray.data[parseInt(answer) - 1].id;
         return new Promise(resolve => {
             request('https://api.meteostat.net/v1/history/daily?station=' + station + '&start=' + startdate + '&end=' + enddate + '&key=' + meteostat, function (error, response, data) {
