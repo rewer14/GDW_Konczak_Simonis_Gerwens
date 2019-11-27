@@ -1,0 +1,11 @@
+{
+  "name": "easyfinance",
+  "version": "1.0.0",
+  "description": "Program to bring weather dates in relationshiop with stock market",
+  "main": "api_weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
