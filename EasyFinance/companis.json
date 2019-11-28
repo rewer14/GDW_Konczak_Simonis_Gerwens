@@ -1,0 +1,92 @@
+{
+    "bestMatches": [
+        {
+            "1. symbol": "AUDVF",
+            "2. name": "AUDI AG",
+            "3. type": "Equity",
+            "4. region": "United States",
+            "5. marketOpen": "09:30",
+            "6. marketClose": "16:00",
+            "7. timezone": "UTC-05",
+            "8. currency": "USD",
+            "9. matchScore": "1.0000"
+        },
+        {
+            "1. symbol": "NSU.DEX",
+            "2. name": "AUDI AG",
+            "3. type": "Equity",
+            "4. region": "XETRA",
+            "5. marketOpen": "08:00",
+            "6. marketClose": "20:00",
+            "7. timezone": "UTC+01",
+            "8. currency": "EUR",
+            "9. matchScore": "1.0000"
+        },
+        {
+            "1. symbol": "NSU.HAM",
+            "2. name": "AUDI AG O.N.",
+            "3. type": "Equity",
+            "4. region": "Hamburg",
+            "5. marketOpen": "08:00",
+            "6. marketClose": "20:00",
+            "7. timezone": "UTC+01",
+            "8. currency": "EUR",
+            "9. matchScore": "1.0000"
+        },
+        {
+            "1. symbol": "NSU.STG",
+            "2. name": "AUDI AG Inhaber-Aktien o.N.",
+            "3. type": "Equity",
+            "4. region": "Stuttgart",
+            "5. marketOpen": "08:00",
+            "6. marketClose": "20:00",
+            "7. timezone": "UTC+01",
+            "8. currency": "EUR",
+            "9. matchScore": "0.7368"
+        },
+        {
+            "1. symbol": "NSU.DUS",
+            "2. name": "AUDI AG O.N.",
+            "3. type": "Equity",
+            "4. region": "Dusseldorf",
+            "5. marketOpen": "08:30",
+            "6. marketClose": "20:00",
+            "7. timezone": "UTC+01",
+            "8. currency": "EUR",
+            "9. matchScore": "0.7368"
+        },
+        {
+            "1. symbol": "NSU.BER",
+            "2. name": "AUDI AG O.N.",
+            "3. type": "Equity",
+            "4. region": "Berlin",
+            "5. marketOpen": "08:00",
+            "6. marketClose": "20:00",
+            "7. timezone": "UTC+01",
+            "8. currency": "EUR",
+            "9. matchScore": "0.7368"
+        },
+        {
+            "1. symbol": "NSU.MUN",
+            "2. name": "AUDI AG O.N.",
+            "3. type": "Equity",
+            "4. region": "Munich",
+            "5. marketOpen": "08:00",
+            "6. marketClose": "20:00",
+            "7. timezone": "UTC+01",
+            "8. currency": "EUR",
+            "9. matchScore": "0.7368"
+        },
+        {
+            "1. symbol": "NSU.FRK",
+            "2. name": "AUDI AG",
+            "3. type": "Equity",
+            "4. region": "Frankfurt",
+            "5. marketOpen": "08:00",
+            "6. marketClose": "20:00",
+            "7. timezone": "UTC+01",
+            "8. currency": "EUR",
+            "9. matchScore": "0.4118"
+        }
+    ]
+}
