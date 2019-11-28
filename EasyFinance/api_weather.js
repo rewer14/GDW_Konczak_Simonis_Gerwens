@@ -30,9 +30,9 @@ function city() {
 //Startdatum
 function date() {
     return new Promise(resolve => {
-        rl.question('Geben Sie das Stat Datum(Format:YYYY-MM) ein:\n', answer => {
+        rl.question('Geben Sie das Stat Datum(Format:YYYY-MM-DD) ein:\n', answer => {
             startdate = answer;
-            rl.question('Geben Sie das End Datum(Format:YYYY-MM) ein:\n', answer => {
+            rl.question('Geben Sie das End Datum(Format:YYYY-MM-DD) ein:\n', answer => {
                 enddate = answer;
                 resolve('Done');
             });
