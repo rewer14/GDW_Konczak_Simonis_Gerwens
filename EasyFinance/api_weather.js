@@ -57,6 +57,10 @@ function stationrequest() {
 function getJson() {
     return new Promise(resolve => {
         stationarray = require('./station_id.json');
+        if(stationarray.data.length===0){
+            console.log('Die Eingebene Stadt ist nicht verfügbar');
+            process.exit()
+        }
         resolve("Done")
     })
 }
@@ -73,9 +77,6 @@ function datarequest() {
                 weatherarray.data.forEach(element=>console.log('Datum: '+ element.date +' Min: ' +element.temperature_min +' Max: ' +element.temperature_max+' Windgeschwindigkeit: '+element.windspeed+' Druck: '+element.pressure ))
             });
     });
-
-
-
     })
 }
 
@@ -100,11 +101,6 @@ async function main() {
         console.log(error);
     }
     try {
-        await date()
-    } catch (error) {
-        console.log(error);
-    }
-    try {
         await stationrequest()
     } catch (error) {
         console.log(error)
@@ -114,6 +110,11 @@ async function main() {
 
     } catch (error) {
         console.log(error)
+    }
+    try {
+        await date()
+    } catch (error) {
+        console.log(error);
     }
     try {
         await ausgabe();
