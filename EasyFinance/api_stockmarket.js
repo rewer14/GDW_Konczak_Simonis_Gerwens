@@ -15,6 +15,7 @@ var companyarray=[];
 var company_choice=[];
 var stockarray=[];
 var alphavantage_apikey='354J0V14M49Y1Y2D';
+var iterator=1;
 
 
 function companiesrequest() {
@@ -38,7 +39,7 @@ function company() {
 }
 function getJson() {
     return new Promise(resolve => {
-       companyarray = require('./companies.json');
+        companyarray = require('./companies.json');
         if(companyarray.bestMatches.length===0){
             console.log('Das eingebene Unternehmen ist nicht verfügbar');
             process.exit()
@@ -46,12 +47,12 @@ function getJson() {
         resolve("Done")
     })
 }
-var y=1;
+
 function ausgabe() {
     new Promise(resolve => {
         companyarray.bestMatches.forEach(element => {
-            console.log('Auswahl ' + y + ' für ' + element['2. name']);
-            y++
+            console.log('Auswahl ' + iterator + ' für ' + element['2. name']);
+            iterator++
         });
         resolve('done');
     })
@@ -83,9 +84,9 @@ function datarequest() {
                     fs.writeFileSync('./stockmarket.json',JSON.stringify(res.body) );
                 });
                 resolve('Done')
-                });
             });
-        })
+        });
+    })
 }
 
 function choice(){
