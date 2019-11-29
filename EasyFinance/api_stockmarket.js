@@ -20,7 +20,7 @@ var alphavantage_apikey='354J0V14M49Y1Y2D';
 function companiesrequest() {
     return new Promise(resolve => {
         request('https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords='+searchcompany+'&apikey='+alphavantage_apikey, function (error, response, data) {
-            fs.writeFileSync('./companis.json', data);
+            fs.writeFileSync('./companies.json', data);
             resolve('Done');
         });
 
@@ -38,7 +38,7 @@ function company() {
 }
 function getJson() {
     return new Promise(resolve => {
-       companyarray = require('./companis.json');
+       companyarray = require('./companies.json');
         if(companyarray.bestMatches.length===0){
             console.log('Das eingebene Unternehmen ist nicht verfügbar');
             process.exit()
@@ -62,27 +62,45 @@ function datarequest() {
             company_choice = companyarray.bestMatches[parseInt(answer) - 1]['1. symbol'];
             resolve('done');
             return new Promise(resolve => {
-                request('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=' + company_choice + '&apikey=' + alphavantage_apikey, function (error, response, data) {
 
-                    var json_data = data;
-                    var result = [];
+                var unirest = require("unirest");
+                var req = unirest("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-historical-data");
 
-                    fs.writeFileSync('./stockmarket.json',json_data );
-                    // stockarray = require('./stockmarket.json');
-                    // stockarray=stockarray["Monthly Time Series"]
-                    // console.log(stockarray.length);
-                    rl.close();
-                    resolve('Done');
-                    process.exit();
+                req.query({
+                    "frequency": "1d",
+                    "filter": "history",
+                    "period1": "1546448400",
+                    "period2": "1562086800",
+                    "symbol": company_choice
+                });
+                req.headers({
+                    "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+                    "x-rapidapi-key": "8882db1e5cmsh2ae16f711a15cadp1d29d8jsnbea78110822f"
+                });
+
+
+                req.end(function (res) {
+                    fs.writeFileSync('./stockmarket.json',JSON.stringify(res.body) );
+                });
+                resolve('Done')
                 });
             });
         })
-    });
 }
-function auswahl(){
+
+function choice(){
     stockarray=require('./stockmarket.json');
-    stockarray=stockarray["Monthly Time Series"];
-    stockarray.forEach(element=>console.log(element['1. open']))
+    stockarray.prices.forEach(element=>console.log(timeConverter(element.date)+ ' high: '+element.high+ ' low: '+ element.low))
+    process.exit()
+}
+function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var time = date + ' ' + month + ' ' + year;
+    return time;
 }
 
 async function main() {
@@ -104,11 +122,11 @@ async function main() {
     } catch (error) {
     }
     try {
-        await auswahl()
+        await datarequest()
     } catch (error) {
     }
     try {
-        await datarequest()
+        await choice()
     } catch (error) {
     }
 }
