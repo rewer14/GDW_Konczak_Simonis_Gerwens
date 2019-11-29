@@ -9,7 +9,7 @@ const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-
+//Variabeln
 var searchcompany;
 var companyarray=[];
 var company_choice=[];
@@ -17,7 +17,7 @@ var stockarray=[];
 var alphavantage_apikey='354J0V14M49Y1Y2D';
 var iterator=1;
 
-
+//Abfrage der Unternehmen
 function companiesrequest() {
     return new Promise(resolve => {
         request('https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords='+searchcompany+'&apikey='+alphavantage_apikey, function (error, response, data) {
@@ -28,6 +28,7 @@ function companiesrequest() {
 
     })
 }
+//Eingabe des gesuchten Unternehmens
 function company() {
     return new Promise(resolve => {
         rl.question('Geben Sie den Namen das gesuchte Unternehmen an\n', (answer) => {
@@ -37,6 +38,8 @@ function company() {
 
     })
 }
+
+//JSON File abrufen
 function getJson() {
     return new Promise(resolve => {
         companyarray = require('./companies.json');
@@ -47,7 +50,7 @@ function getJson() {
         resolve("Done")
     })
 }
-
+//Ausgabe der der Unternehmen
 function ausgabe() {
     new Promise(resolve => {
         companyarray.bestMatches.forEach(element => {
@@ -57,6 +60,8 @@ function ausgabe() {
         resolve('done');
     })
 }
+
+//Abfrage der Aktien Historie
 function datarequest() {
     return new Promise(resolve => {
         rl.question('\nIhr Auswahl\n', function (answer) {
@@ -88,12 +93,13 @@ function datarequest() {
         });
     })
 }
-
+//Ausgabe der Aktienkurse
 function choice(){
     stockarray=require('./stockmarket.json');
     stockarray.prices.forEach(element=>console.log(timeConverter(element.date)+ ' high: '+element.high+ ' low: '+ element.low))
     process.exit()
 }
+//Unix Time Konverter
 function timeConverter(UNIX_timestamp){
     var a = new Date(UNIX_timestamp * 1000);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -103,7 +109,7 @@ function timeConverter(UNIX_timestamp){
     var time = date + ' ' + month + ' ' + year;
     return time;
 }
-
+//Main asynch Funktion
 async function main() {
 
     try {
@@ -131,4 +137,5 @@ async function main() {
     } catch (error) {
     }
 }
+//Ausführen des Codes
 main();

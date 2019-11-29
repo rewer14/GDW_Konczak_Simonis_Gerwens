@@ -64,8 +64,7 @@ function getJson() {
         resolve("Done")
     })
 }
-
-//https://api.meteostat.net/v1/history/monthly?station=+ station + '&start=' + startdate + '&end=' + enddate + '&key=' + meteostat
+//Wetterdaten abfrage
 function datarequest() {
     rl.question('\nIhr Auswahl\n',answer=>{
         station = stationarray.data[parseInt(answer) - 1].id;
@@ -81,7 +80,7 @@ function datarequest() {
 }
 
 var y = 1;
-
+//Ausgabe der Wetterstationen
 function ausgabe() {
     new Promise(resolve => {
         stationarray.data.forEach(element => {
@@ -93,7 +92,7 @@ function ausgabe() {
     })
 }
 
-
+//Main asynch Funktion
 async function main() {
     try {
         await city()
@@ -128,7 +127,7 @@ async function main() {
         console.log(error)
     }
 }
-
+//Ausführen des Codes
 main();
 
 
