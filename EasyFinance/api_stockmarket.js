@@ -15,7 +15,13 @@ var companyarray=[];
 var company_choice=[];
 var stockarray=[];
 var alphavantage_apikey='354J0V14M49Y1Y2D';
+var yahoo_key="8882db1e5cmsh2ae16f711a15cadp1d29d8jsnbea78110822f";
 var iterator=1;
+
+TODO:
+
+
+
 
 //Abfrage der Unternehmen
 function companiesrequest() {
@@ -81,7 +87,7 @@ function datarequest() {
                 });
                 req.headers({
                     "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "8882db1e5cmsh2ae16f711a15cadp1d29d8jsnbea78110822f"
+                    "x-rapidapi-key": yahoo_key
                 });
 
 

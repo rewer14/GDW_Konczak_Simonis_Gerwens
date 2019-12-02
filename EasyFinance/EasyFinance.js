@@ -10,8 +10,12 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-//Variablen Block
+//API_KEYS
 var meteostat_apikey = 'YkbGFtyA';
+var yahoo_key="8882db1e5cmsh2ae16f711a15cadp1d29d8jsnbea78110822f";
+var alphavantage_apikey='354J0V14M49Y1Y2D';
+
+//Variablen Block
 var searchcity;
 var startdate;
 var enddate;
@@ -24,8 +28,14 @@ var searchcompany;
 var companyarray=[];
 var company_choice=[];
 var stockarray=[];
-var alphavantage_apikey='354J0V14M49Y1Y2D';
 var iterator=1;
+
+/*TODO:
+Marvin: Ausgabe in der Console
+Jakob: Export CSV Datei und suche nach kostenfreier Aktien API
+Max: Anpasung Program Code und implemtierung zweiter suchanfrage
+ */
+
 
 //Abfrage der Stadt
 function city() {
@@ -54,13 +64,10 @@ function date() {
 //API Abruf Station id
 function stationrequest() {
     return new Promise(resolve => {
-        request('https://api.meteostat_apikey.net/v1/stations/search?q=' + searchcity + '&key=' + meteostat_apikey, function (error, response, data) {
+        request('https://api.meteostat.net/v1/stations/search?q=' + searchcity + '&key=' + meteostat_apikey, function (error, response, data) {
             fs.writeFileSync('./station_id.json', data);
             resolve('Done');
-
         });
-
-
     })
 }
 //Read JSON File stations
@@ -69,7 +76,6 @@ function getJsonforStations() {
         stationarray = require('./station_id.json');
         if(stationarray.data.length===0){
             console.log('Die Eingebene Stadt ist nicht verfügbar');
-            process.exit()
         }
         resolve("Done")
     })
@@ -160,7 +166,7 @@ function stockrequest() {
                 });
                 req.headers({
                     "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "8882db1e5cmsh2ae16f711a15cadp1d29d8jsnbea78110822f"
+                    "x-rapidapi-key": yahoo_key
                 });
 
 

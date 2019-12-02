@@ -45,9 +45,9 @@
             "9. matchScore": "0.6667"
         },
         {
-            "1. symbol": "APPIX",
-            "2. name": "Appleseed Fund Institutional Share",
-            "3. type": "Mutual Fund",
+            "1. symbol": "GAPJ",
+            "2. name": "Golden Apple Oil & Gas Inc.",
+            "3. type": "Equity",
             "4. region": "United States",
             "5. marketOpen": "09:30",
             "6. marketClose": "16:00",
@@ -56,9 +56,9 @@
             "9. matchScore": "0.6667"
         },
         {
-            "1. symbol": "GAPJ",
-            "2. name": "Golden Apple Oil & Gas Inc.",
-            "3. type": "Equity",
+            "1. symbol": "APPIX",
+            "2. name": "Appleseed Fund Institutional Share",
+            "3. type": "Mutual Fund",
             "4. region": "United States",
             "5. marketOpen": "09:30",
             "6. marketClose": "16:00",
