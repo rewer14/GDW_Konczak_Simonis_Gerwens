@@ -24,8 +24,9 @@ function startdatequestion() {
         })
     })
 }
+
 function enddatequestion() {
-    return new Promise(resolve=>{
+    return new Promise(resolve => {
         rs.question('Geben Sie das End Datum(Format:YYYY-MM-DD) ein:\n', answer => {
             resolve(answer)
         });
@@ -42,7 +43,8 @@ function company() {
 
     })
 }
-module.exports.startdate=startdatequestion;
-module.exports.enddate=enddatequestion;
-module.exports.company=company;
-module.exports.city=city;
+
+module.exports.startdate = startdatequestion;
+module.exports.enddate = enddatequestion;
+module.exports.company = company;
+module.exports.city = city;

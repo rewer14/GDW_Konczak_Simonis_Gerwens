@@ -10,16 +10,16 @@ const rl = readline.createInterface({
 });
 
 //Variabeln
-var companyarray=[];
-var company_choice=[];
-var stockarray=[];
-var alphavantage_apikey='354J0V14M49Y1Y2D';
-var iterator=1;
+var companyarray = [];
+var company_choice = [];
+var stockarray = [];
+var alphavantage_apikey = '354J0V14M49Y1Y2D';
+var iterator = 1;
 
 //Abfrage der Unternehmen
 function companiesrequest(searchcompany) {
     return new Promise(resolve => {
-        request('https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords='+searchcompany+'&apikey='+alphavantage_apikey, function (error, response, data) {
+        request('https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=' + searchcompany + '&apikey=' + alphavantage_apikey, function (error, response, data) {
             fs.writeFileSync('./companies.json', data);
             resolve('Done');
         });
@@ -30,10 +30,10 @@ function companiesrequest(searchcompany) {
 function getJson() {
     return new Promise(resolve => {
         companyarray = require('./companies.json');
-        if(companyarray.bestMatches.length===0){
+        if (companyarray.bestMatches.length === 0) {
             console.log('Das eingebene Unternehmen ist nicht verfügbar');
             process.exit()
-        }else{
+        } else {
             companyarray.bestMatches.forEach(element => {
                 console.log('Auswahl ' + iterator + ' für ' + element['2. name']);
                 iterator++
@@ -45,30 +45,31 @@ function getJson() {
 
 
 //Abfrage der Aktien Historie
-function datarequest(startdate,enddate) {
+function datarequest(startdate, enddate) {
     return new Promise(resolve => {
         rl.question('\nIhr Auswahl\n', function (answer) {
             company_choice = companyarray.bestMatches[parseInt(answer) - 1]['1. symbol'];
 
-                request('https://financialmodelingprep.com/api/v3/historical-price-full/'+company_choice+'?from='+startdate+'&to='+enddate, function (error, response, data) {
-                    fs.writeFileSync('./stockmarket.json', data);
-                    rl.close();
-                    resolve('Done');
+            request('https://financialmodelingprep.com/api/v3/historical-price-full/' + company_choice + '?from=' + startdate + '&to=' + enddate, function (error, response, data) {
+                fs.writeFileSync('./stockmarket.json', data);
+                rl.close();
+                resolve('Done');
             });
         });
     })
 }
+
 //Ausgabe der Aktienkurse
-function choice(){
+function choice() {
     return new Promise(resolve => {
-        stockarray=require('./stockmarket.json');
-        stockarray.historical.forEach(element=>console.log(element.date+ ' high: '+element.high+ ' low: '+ element.low))
+        stockarray = require('./stockmarket.json');
+        stockarray.historical.forEach(element => console.log(element.date + ' high: ' + element.high + ' low: ' + element.low))
         resolve('done')
     })
 
 }
 
-async function main(searchcompany,startdate,enddate) {
+async function main(searchcompany, startdate, enddate) {
     try {
         await companiesrequest(searchcompany)
     } catch (error) {
@@ -78,17 +79,18 @@ async function main(searchcompany,startdate,enddate) {
     } catch (error) {
     }
     try {
-        await datarequest(startdate,enddate)
+        await datarequest(startdate, enddate)
     } catch (error) {
     }
     try {
-       await choice()
+        await choice()
     } catch (error) {
     }
 }
-module.exports.main=main;
-module.exports.companyrequest=companiesrequest;
-module.exports.getJson=getJson;
-module.exports.datarequest=datarequest;
-module.exports.choice=choice;
+
+module.exports.main = main;
+module.exports.companyrequest = companiesrequest;
+module.exports.getJson = getJson;
+module.exports.datarequest = datarequest;
+module.exports.choice = choice;
 //Ausführen des Codes
