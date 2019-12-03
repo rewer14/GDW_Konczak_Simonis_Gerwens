@@ -7,7 +7,7 @@ const api_weather=require('./api_weather');
 const api_stockmarket=require('./api_stockmarket');
 
 //readline
-const rl = readline.createInterface({
+const rs = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
@@ -15,7 +15,7 @@ const rl = readline.createInterface({
 //Abfrage der Stadt
 function city() {
     return new Promise(resolve => {
-        rl.question('Geben Sie den Namen der Stadt an\n', answer => {
+        rs.question('Geben Sie den Namen der Stadt an\n', answer => {
             resolve(answer)
         })
     })
@@ -23,14 +23,14 @@ function city() {
 
 function startdatequestion() {
     return new Promise(resolve => {
-        rl.question('Geben Sie das Stat Datum(Format:YYYY-MM-DD) ein:\n', answer => {
+        rs.question('Geben Sie das Stat Datum(Format:YYYY-MM-DD) ein:\n', answer => {
             resolve(answer);
         })
     })
 }
 function enddatequestion() {
     return new Promise(resolve=>{
-        rl.question('Geben Sie das End Datum(Format:YYYY-MM-DD) ein:\n', answer => {
+        rs.question('Geben Sie das End Datum(Format:YYYY-MM-DD) ein:\n', answer => {
             resolve(answer)
         });
     })
@@ -40,7 +40,7 @@ function enddatequestion() {
 //Eingabe des gesuchten Unternehmens
 function company() {
     return new Promise(resolve => {
-        rl.question('Geben Sie den Namen das gesuchte Unternehmen an\n', (answer) => {
+        rs.question('Geben Sie den Namen das gesuchte Unternehmen an\n', (answer) => {
             resolve(answer);
         });
 
