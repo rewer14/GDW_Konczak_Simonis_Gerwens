@@ -100,8 +100,9 @@ function weatherrequest() {
 
 function ausgabe() {
     new Promise(resolve => {
+        console.log('Folgende Stationen wurden gefunden:')
         stationarray.data.forEach(element => {
-            console.log('Auswahl ' + iterator2 + ' für ' + element.name);
+                        console.log('Auswahl ' + iterator2 + ' für ' + element.name);
             iterator2++
         });
         resolve('done')
