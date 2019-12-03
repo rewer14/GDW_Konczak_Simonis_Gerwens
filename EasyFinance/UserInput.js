@@ -1,10 +1,6 @@
 'use strict';
 //require
 const readline = require('readline');
-const fs = require('fs');
-const request = require("request");
-const api_weather=require('./api_weather');
-const api_stockmarket=require('./api_stockmarket');
 
 //readline
 const rs = readline.createInterface({
