@@ -1,71 +1,52 @@
 'use strict';
 const readline = require('readline');
+var request = require('request');
+const fs = require('fs');
+const api=require('./api_stockmarket');
+
 //readline
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-const fs = require('fs');
+
 
 //Variablen Block
 var meteostat = 'YkbGFtyA';
-var request = require('request');
-var searchcity;
-var startdate;
-var enddate;
 var stationarray = [];
 var station;
 var weatherarray = [];
 
-//Abfrage der Stadt
-function city() {
-    return new Promise(resolve => {
-        rl.question('Geben Sie den Namen der Stadt an\n', answer => {
-            searchcity = answer;
-            resolve('Done');
-        })
-    })
-}
-
-//Startdatum
-function date() {
-    return new Promise(resolve => {
-        rl.question('Geben Sie das Stat Datum(Format:YYYY-MM-DD) ein:\n', answer => {
-            startdate = answer;
-            rl.question('Geben Sie das End Datum(Format:YYYY-MM-DD) ein:\n', answer => {
-                enddate = answer;
-                resolve('Done');
-            });
-        })
-    })
-}
-
 
 //API Abruf Station id
-function stationrequest() {
+function stationrequest(searchcity) {
     return new Promise(resolve => {
-        request('https://api.meteostat.net/v1/stations/search?q=' + searchcity + '&key=' + meteostat, function (error, response, data) {
+        request('https://api.meteostat.net/v1/stations/search?q=' +searchcity+ '&key=' + meteostat, function (error, response, data) {
             fs.writeFileSync('./station_id.json', data);
             resolve('Done');
 
         });
-
-
     })
 }
 
 function getJson() {
     return new Promise(resolve => {
+        let y = 1;
         stationarray = require('./station_id.json');
         if(stationarray.data.length===0){
             console.log('Die Eingebene Stadt ist nicht verfügbar');
-            process.exit()
+            process.exit();
+        }else {
+            stationarray.data.forEach(element => {
+                console.log('Auswahl ' + y + ' für ' + element.name);
+                y++
+            });
         }
         resolve("Done")
     })
 }
 //Wetterdaten abfrage
-function datarequest() {
+function datarequest(startdate,enddate,searchcompany) {
     rl.question('\nIhr Auswahl\n',answer=>{
         station = stationarray.data[parseInt(answer) - 1].id;
         return new Promise(resolve => {
@@ -74,60 +55,37 @@ function datarequest() {
                 weatherarray = require('./weather.json');
                 resolve('Done');
                 weatherarray.data.forEach(element=>console.log('Datum: '+ element.date +' Min: ' +element.temperature_min +' Max: ' +element.temperature_max+' Windgeschwindigkeit: '+element.windspeed+' Druck: '+element.pressure ))
+                api.main(searchcompany,startdate,enddate)
             });
     });
     })
 }
 
-var y = 1;
-//Ausgabe der Wetterstationen
-function ausgabe() {
-    new Promise(resolve => {
-        stationarray.data.forEach(element => {
-            console.log('Auswahl ' + y + ' für ' + element.name);
-            y++
-        });
-        resolve('done')
-
-    })
-}
-
 //Main asynch Funktion
-async function main() {
-    try {
-        await city()
-    } catch (error) {
-        console.log(error);
-    }
-    try {
-        await stationrequest()
-    } catch (error) {
-        console.log(error)
-    }
-    try {
-        await getJson()
+async function main(searchcity,startdate,enddate,searchcompany) {
+        try {
+            await stationrequest(searchcity)
+        } catch (error) {
+            console.log(error)
+        }
+        try {
+            await getJson()
 
-    } catch (error) {
-        console.log(error)
-    }
-    try {
-        await date()
-    } catch (error) {
-        console.log(error);
-    }
-    try {
-        await ausgabe();
-    } catch (error) {
-        console.log(error)
-    }
-
-    try {
-        await datarequest()
-    } catch (error) {
-        console.log(error)
-    }
+        } catch (error) {
+            console.log(error)
+        }
+        try {
+            await datarequest(startdate,enddate,searchcompany)
+        } catch (error) {
+            console.log(error)
+        }
 }
+
+
+module.exports.main=main;
+module.exports.stationrequest=stationrequest;
+module.exports.getJson=getJson;
+module.exports.datarequest=datarequest;
 //Ausführen des Codes
-main();
 
 
