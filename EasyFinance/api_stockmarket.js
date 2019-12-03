@@ -48,7 +48,6 @@ function getJson() {
 function datarequest(startdate,enddate) {
     return new Promise(resolve => {
         rl.question('\nIhr Auswahl\n', function (answer) {
-            console.log(answer);
             company_choice = companyarray.bestMatches[parseInt(answer) - 1]['1. symbol'];
 
                 request('https://financialmodelingprep.com/api/v3/historical-price-full/'+company_choice+'?from='+startdate+'&to='+enddate, function (error, response, data) {
