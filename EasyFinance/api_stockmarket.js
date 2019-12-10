@@ -18,28 +18,26 @@ var iterator = 1;
 var startdate='2018-04-05';
 var enddate='2019-10-30';
 
-//Abfrage der Unternehmen
+/*//Abfrage der Unternehmen
 function companiesrequest(searchcompany) {
     return new Promise(resolve => {
-        request('https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=' + searchcompany + '&apikey=' + alphavantage_apikey, function (error, response, data) {
-            fs.writeFileSync('./companies.json', data);
+        request('https://financialmodelingprep.com/api/v3/company/stock/list', function (error, response, data) {
+            fs.writeFileSync('./symbol.json', data);
             resolve('Done');
         });
     })
-}
+}*/
 
 //JSON File abrufen
-function getJson() {
+var i=0;
+function getJson(searchcompany) {
     return new Promise(resolve => {
-        companyarray = require('./companies.json');
-        if (companyarray.bestMatches.length === 0) {
-            console.log('Das eingebene Unternehmen ist nicht verfügbar');
-            process.exit()
-        } else {
-            companyarray.bestMatches.forEach(element => {
-                console.log('Auswahl ' + iterator + ' für ' + element['2. name']);
-                iterator++
-            });
+        companyarray = require('./symbol');
+        for(i; i<=companyarray.symbolsList.length;i++){
+            if(companyarray.symbolsList[i]==searchcompany){
+                    console.log('Auswahl ' + iterator + ' für ' + companyarray.symbolsList[i]).name;
+                    iterator++
+            }
         }
         resolve("Done")
     })
@@ -50,7 +48,7 @@ function getJson() {
 function datarequest() {
     return new Promise(resolve => {
         rl.question('\nIhre Auswahl\n', function (answer) {
-            company_choice = companyarray.bestMatches[parseInt(answer) - 1]['1. symbol'];
+            company_choice = companyarray.symbolsList[parseInt(answer) - 1].symbol;
 
             request('https://financialmodelingprep.com/api/v3/historical-price-full/' + company_choice + '?from=' + startdate + '&to=' + enddate, function (error, response, data) {
                 fs.writeFileSync('./stockmarket.json', data);
@@ -72,12 +70,12 @@ function choice() {
 }
 
 async function main(searchcompany) {
-    try {
+   /* try {
         await companiesrequest(searchcompany)
     } catch (error) {
-    }
+    }*/
     try {
-        await getJson()
+        await getJson(searchcompany)
     } catch (error) {
     }
     try {
@@ -91,7 +89,7 @@ async function main(searchcompany) {
 }
 
 module.exports.main = main;
-module.exports.companyrequest = companiesrequest;
+//module.exports.companyrequest = companiesrequest;
 module.exports.getJson = getJson;
 module.exports.datarequest = datarequest;
 module.exports.choice = choice;

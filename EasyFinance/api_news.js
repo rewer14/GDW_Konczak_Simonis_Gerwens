@@ -18,5 +18,5 @@ function out() {
 put.response.docs.forEach(element=>console.log(element.abstract))
 
 }
-module.exports.put=put;
 out;
+module.exports.put=put;
