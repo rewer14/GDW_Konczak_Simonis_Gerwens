@@ -8,32 +8,6 @@ const rs = readline.createInterface({
     output: process.stdout
 });
 
-//Abfrage der Stadt
-function city() {
-    return new Promise(resolve => {
-        rs.question('Geben Sie den Namen der Stadt an\n', answer => {
-            resolve(answer)
-        })
-    })
-}
-
-function startdatequestion() {
-    return new Promise(resolve => {
-        rs.question('Geben Sie das Stat Datum(Format:YYYY-MM-DD) ein:\n', answer => {
-            resolve(answer);
-        })
-    })
-}
-
-function enddatequestion() {
-    return new Promise(resolve => {
-        rs.question('Geben Sie das End Datum(Format:YYYY-MM-DD) ein:\n', answer => {
-            resolve(answer)
-        });
-    })
-
-}
-
 //Eingabe des gesuchten Unternehmens
 function company() {
     return new Promise(resolve => {
@@ -44,7 +18,4 @@ function company() {
     })
 }
 
-module.exports.startdate = startdatequestion;
-module.exports.enddate = enddatequestion;
 module.exports.company = company;
-module.exports.city = city;

@@ -15,6 +15,8 @@ var company_choice = [];
 var stockarray = [];
 var alphavantage_apikey = '354J0V14M49Y1Y2D';
 var iterator = 1;
+var startdate='2018-04-05';
+var enddate='2019-10-30';
 
 //Abfrage der Unternehmen
 function companiesrequest(searchcompany) {
@@ -45,7 +47,7 @@ function getJson() {
 
 
 //Abfrage der Aktien Historie
-function datarequest(startdate, enddate) {
+function datarequest() {
     return new Promise(resolve => {
         rl.question('\nIhre Auswahl\n', function (answer) {
             company_choice = companyarray.bestMatches[parseInt(answer) - 1]['1. symbol'];
@@ -69,7 +71,7 @@ function choice() {
 
 }
 
-async function main(searchcompany, startdate, enddate) {
+async function main(searchcompany) {
     try {
         await companiesrequest(searchcompany)
     } catch (error) {
@@ -79,7 +81,7 @@ async function main(searchcompany, startdate, enddate) {
     } catch (error) {
     }
     try {
-        await datarequest(startdate, enddate)
+        await datarequest()
     } catch (error) {
     }
     try {
