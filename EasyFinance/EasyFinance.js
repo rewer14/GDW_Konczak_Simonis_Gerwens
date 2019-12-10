@@ -1,4 +1,3 @@
-const api_stockmarket = require('./api_stockmarket');
 const api_weather = require('./api_weather');
 const userinput = require('./UserInput');
 
@@ -9,11 +8,11 @@ var enddate;
 
 async function userinterface() {
     try {
-        searchcity = await userinput.city()
+        searchcity = await userinput.city();
     } catch (e) {
     }
     try {
-        searchcompany = await userinput.company()
+        searchcompany = await userinput.company();
     } catch (e) {
     }
     try {

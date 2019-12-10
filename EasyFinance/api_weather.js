@@ -87,6 +87,5 @@ module.exports.main = main;
 module.exports.stationrequest = stationrequest;
 module.exports.getJson = getJson;
 module.exports.datarequest = datarequest;
-//Ausführen des Codes
 
 
