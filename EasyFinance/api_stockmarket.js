@@ -58,7 +58,7 @@ function datarequest() {
 function choice() {
     return new Promise(resolve => {
         stockarray = require('./stockmarket.json');
-        stockarray.historical.forEach(element => console.log(element.date + ' high: ' + (element.high/1.11) + ' low: ' + (element.low/1.11)+ ' close: '+(element.close/1.11)+ ' prozent: ' +element.changePercent));
+        stockarray.historical.forEach(element => console.log(element.date + ' high: ' + (element.high/1.11) + ' low: ' + (element.low/1.11)+ ' close: '+(element.close/1.11)+ ' change percent: ' +element.changePercent));
         resolve('done')
     })
 
