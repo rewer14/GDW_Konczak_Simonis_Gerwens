@@ -2,7 +2,7 @@ var request = require('request');
 const fs = require('fs');
 
 const ny_times='AaCI42V4KkN5MPQJ72TP4cZRhQ5iXyQ9';
-const unternehmen='Apple Inc';
+const unternehmen='Tesla Inc';
 const von ='20180405';
 const bis= '20191030';
 
@@ -18,5 +18,5 @@ function out() {
 put.response.docs.forEach(element=>console.log(element.abstract))
 
 }
-out;
+out();
 module.exports.put=put;
