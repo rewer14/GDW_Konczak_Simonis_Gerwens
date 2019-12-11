@@ -36,7 +36,6 @@ function getJson(searchcompany) {
         companyarray.symbolsList.forEach(element=>{
          if (element.name===searchcompany) {
              company_choice=element.symbol;
-             console.log(element.name)
         }
         });
         resolve("Done")
