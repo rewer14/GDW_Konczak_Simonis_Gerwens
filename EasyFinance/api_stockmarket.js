@@ -33,12 +33,12 @@ var i=0;
 function getJson(searchcompany) {
     return new Promise(resolve => {
         companyarray = require('./symbol');
-        for(i; i<=companyarray.symbolsList.length;i++){
-            if(companyarray.symbolsList[i]==searchcompany){
-                    console.log('Auswahl ' + iterator + ' für ' + companyarray.symbolsList[i]).name;
-                    iterator++
-            }
+        companyarray.symbolsList.forEach(element=>{
+         if (element.name===searchcompany) {
+             company_choice=element.symbol;
+             console.log(element.name)
         }
+        });
         resolve("Done")
     })
 }
@@ -48,8 +48,6 @@ function getJson(searchcompany) {
 function datarequest() {
     return new Promise(resolve => {
         rl.question('\nIhre Auswahl\n', function (answer) {
-            company_choice = companyarray.symbolsList[parseInt(answer) - 1].symbol;
-
             request('https://financialmodelingprep.com/api/v3/historical-price-full/' + company_choice + '?from=' + startdate + '&to=' + enddate, function (error, response, data) {
                 fs.writeFileSync('./stockmarket.json', data);
                 rl.close();
@@ -63,7 +61,7 @@ function datarequest() {
 function choice() {
     return new Promise(resolve => {
         stockarray = require('./stockmarket.json');
-        stockarray.historical.forEach(element => console.log(element.date + ' high: ' + element.high + ' low: ' + element.low))
+        stockarray.historical.forEach(element => console.log(element.date + ' high: ' + (element.high/1.11) + ' low: ' + (element.low/1.11)+ ' close: '+(element.close/1.11)+ ' prozent: ' +element.changePercent));
         resolve('done')
     })
 
