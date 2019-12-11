@@ -47,14 +47,12 @@ function getJson(searchcompany) {
 //Abfrage der Aktien Historie
 function datarequest() {
     return new Promise(resolve => {
-        rl.question('\nIhre Auswahl\n', function (answer) {
             request('https://financialmodelingprep.com/api/v3/historical-price-full/' + company_choice + '?from=' + startdate + '&to=' + enddate, function (error, response, data) {
                 fs.writeFileSync('./stockmarket.json', data);
                 rl.close();
                 resolve('Done');
             });
         });
-    })
 }
 
 //Ausgabe der Aktienkurse
