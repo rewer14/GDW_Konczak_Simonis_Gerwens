@@ -2,18 +2,11 @@
 //require
 const readline = require('readline');
 const fs = require('fs');
-const request = require("request");
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 //Variabeln
 var companyarray = [];
 var company_choice = [];
 var stockarray = [];
-var alphavantage_apikey = '354J0V14M49Y1Y2D';
 var iterator = 1;
 var startdate='2018-04-05';
 var enddate='2019-10-30';

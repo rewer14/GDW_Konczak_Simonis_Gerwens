@@ -1,9 +1,9 @@
 'use strict';
 //require
-const readline = require('readline');
+const rl = require('readline');
 
 //readline
-const rs = readline.createInterface({
+const rs = rl.createInterface({
     input: process.stdin,
     output: process.stdout
 });
